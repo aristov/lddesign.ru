@@ -16,30 +16,45 @@ class SlideShow extends React.Component
     super(props)
     this.state = {
       current : 0,
+      items : [items[items.length - 1], items[0], items[1]],
     }
+    this.onClick = this.onClick.bind(this)
   }
 
   render() {
     return (
-      <div className="SlideShow">
-        <div className="SlideList"
-             onClick={ () => this.onClick() }
-             style={ { left : -this.state.current * 100 + '%' } }>
-          { items.map((item, i) => <SlideItem key={ i } url={ item }/>) }
-        </div>
+      <div className="SlideShow" onClick={ this.onClick }>
+        <div className="SlideList">{
+          this.state.items.map((item, i) => {
+            return <SlideItem key={ item } url={ item } index={ i }/>
+          })
+        }</div>
       </div>
     )
   }
 
-  onClick() {
-    const current = this.state.current + 1
-    this.setState({ current : current < items.length? current : 0 })
+  onClick(e) {
+    const shift = e.screenX < window.innerWidth / 2? -1 : 1
+    const current = getIndex(this.state.current + shift)
+    const prev = getIndex(current - 1)
+    const next = getIndex(current + 1)
+    this.setState({
+      current,
+      items : [items[prev], items[current], items[next]],
+    })
   }
+}
+
+function getIndex(i) {
+  return i < 0? items.length + i : i % items.length
 }
 
 function SlideItem(props) {
   return (
-    <div className="SlideItem" style={ { backgroundImage : `url(media/${ props.url })` } }/>
+    <div className="SlideItem" style={ {
+      backgroundImage : `url(media/${ props.url })`,
+      left : (props.index - 1) * 100 + '%',
+    } }/>
   )
 }
 

@@ -15,11 +15,12 @@
 .App .SlideList
 {
   position: relative;
-  transition: left .7s;
 }
 .App .SlideItem
 {
   display: inline-block;
   background: center center / cover no-repeat;
   width: 100%;
+  transition: left .7s;
+  position: absolute;
 }

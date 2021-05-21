@@ -1,11 +1,6 @@
 import React from 'react'
+import items from './items.json'
 import './App.css'
-
-const items = [
-  '00-01.jpg',
-  '01-0_Квартира_для_родителей.jpg',
-  '01-1_Квартира_для_родителей.jpg',
-]
 
 function App() {
   return (

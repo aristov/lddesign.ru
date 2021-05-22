@@ -1,5 +1,6 @@
 import React from 'react'
 import items from './items.json'
+import './SlideShow.css'
 
 export class SlideShow extends React.Component
 {
@@ -15,21 +16,27 @@ export class SlideShow extends React.Component
 
   render() {
     return (
-      <div className="SlideShow" onClick={ this.onClick } onTransitionEnd={ this.onTransitionEnd }>
-        <div className="SlideList">{
+      <div className="SlideShow">
+        <div className="SlideList"
+             onClick={ this.onClick }
+             onTransitionEnd={ this.onTransitionEnd }>{
           this.state.items.map((item, i) => {
             return <SlideItem key={ item } url={ item } index={ i }/>
           })
         }</div>
+        <div className="SlideControl">
+          <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>Prev</button>
+          <button className="SlideNext" onClick={ () => this.switchSlide(1) }>Next</button>
+        </div>
       </div>
     )
   }
 
-  onClick(e) {
+  switchSlide(shift) {
     if(this._transition) {
       return
     }
-    const shift = e.screenX < window.innerWidth / 2? -1 : 1
+    this._transition = true
     this.setState(state => {
       const current = getIndex(state.current + shift)
       const prev = getIndex(current - 1)
@@ -39,7 +46,10 @@ export class SlideShow extends React.Component
         items : [items[prev], items[current], items[next]],
       }
     })
-    this._transition = true
+  }
+
+  onClick(e) {
+    this.switchSlide(e.screenX < window.innerWidth / 2? -1 : 1)
   }
 
   onTransitionEnd() {

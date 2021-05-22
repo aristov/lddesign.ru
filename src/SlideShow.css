@@ -1,0 +1,32 @@
+.SlideShow
+{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 0;
+}
+.SlideShow,
+.SlideShow .SlideList,
+.SlideShow .SlideItem
+{
+  height: 100%;
+}
+.SlideShow .SlideList
+{
+  position: relative;
+}
+.SlideShow .SlideItem
+{
+  display: inline-block;
+  background: center center / cover no-repeat;
+  width: 100%;
+  transition: left .7s;
+  position: absolute;
+}
+.SlideShow .SlideControl
+{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 20px;
+}

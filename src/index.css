@@ -26,6 +26,10 @@ body #root
 {
   height: 100%;
 }
+a[href]
+{
+  outline: none;
+}
 .icon::before
 {
   margin: 0;

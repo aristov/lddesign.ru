@@ -31,13 +31,13 @@ export class Header extends React.Component
             <li><a href="/contact">Контакты</a></li>
           </ul>
           <div className="Social">
-            <a target="_blank" href="https://www.instagram.com/design.ld/">
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/design.ld/">
               <span className="icon icon-instagram"/>
             </a>
-            <a target="_blank" href="https://facebook.com/larisa.dedlovskaya">
+            <a target="_blank" rel="noreferrer" href="https://facebook.com/larisa.dedlovskaya">
               <span className="icon icon-facebook"/>
             </a>
-            <a target="_blank" href="https://vk.com/larisadedlovskaya">
+            <a target="_blank" rel="noreferrer" href="https://vk.com/larisadedlovskaya">
               <span className="icon icon-vkontakte"/>
             </a>
           </div>

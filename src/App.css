@@ -13,7 +13,10 @@
   height: 100%;
   transition: left .3s;
 }
-.App.open > .Inner
+@media (max-width: 899px)
 {
-  left: -80%;
+  .App.open > .Inner
+  {
+    left: -80%;
+  }
 }

@@ -14,7 +14,7 @@ function App() {
 function Header(props) {
   return (
     <header className="Header">
-      <h1>Лариса Дедловская</h1>
+      <h1><a href="/">Лариса Дедловская</a></h1>
       <nav>
         <ul>
           <li><a href="/classic">Классика</a></li>

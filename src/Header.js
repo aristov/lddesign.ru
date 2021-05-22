@@ -30,6 +30,17 @@ export class Header extends React.Component
             <li><a href="/blog">Блог</a></li>
             <li><a href="/contact">Контакты</a></li>
           </ul>
+          <div className="Social">
+            <a target="_blank" href="https://www.instagram.com/design.ld/">
+              <span className="icon icon-instagram"/>
+            </a>
+            <a target="_blank" href="https://facebook.com/larisa.dedlovskaya">
+              <span className="icon icon-facebook"/>
+            </a>
+            <a target="_blank" href="https://vk.com/larisadedlovskaya">
+              <span className="icon icon-vkontakte"/>
+            </a>
+          </div>
         </nav>
       </header>
     )

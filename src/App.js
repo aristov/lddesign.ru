@@ -35,12 +35,14 @@ class SlideShow extends React.Component
 
   onClick(e) {
     const shift = e.screenX < window.innerWidth / 2? -1 : 1
-    const current = getIndex(this.state.current + shift)
-    const prev = getIndex(current - 1)
-    const next = getIndex(current + 1)
-    this.setState({
-      current,
-      items : [items[prev], items[current], items[next]],
+    this.setState(state => {
+      const current = getIndex(state.current + shift)
+      const prev = getIndex(current - 1)
+      const next = getIndex(current + 1)
+      return {
+        current,
+        items : [items[prev], items[current], items[next]],
+      }
     })
   }
 }

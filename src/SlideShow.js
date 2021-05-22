@@ -25,8 +25,13 @@ export class SlideShow extends React.Component
           })
         }</div>
         <div className="SlideControl">
-          <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>Prev</button>
-          <button className="SlideNext" onClick={ () => this.switchSlide(1) }>Next</button>
+          <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>
+            <span className="icon icon-angle-left"/>
+          </button>
+          <div className="SlideCounter">{ this.state.current + 1 } / { items.length }</div>
+          <button className="SlideNext" onClick={ () => this.switchSlide(1) }>
+            <span className="icon icon-angle-right"/>
+          </button>
         </div>
       </div>
     )

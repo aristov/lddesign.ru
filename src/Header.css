@@ -1,25 +1,61 @@
 .Header
 {
   position: absolute;
+  width: 100%;
   z-index: 1;
-  padding: 0 20px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0) 100%);
-  height: 100%;
+  color: #fff;
+}
+.Header > .Inner
+{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 10px;
 }
 .Header h1
 {
-  width: 0;
-  font-size: 2.4rem;
+  font-size: 1.3rem;
   white-space: nowrap;
+  margin-left: 10px;
+}
+.Header button
+{
+  font-size: 1.8rem;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 2px 6px;
+  opacity: .8;
+  text-shadow: inherit;
+  cursor: pointer;
+  outline: none;
+}
+.Header button:hover,
+.Header button:focus,
+.Header button:active
+{
+  opacity: 1;
+}
+.Header nav
+{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 80vw;
+  height: 100vh;
+  transition: background-color .3s, right .3s;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #333;
+  z-index: 2;
 }
 .Header ul
 {
-  font-size: 1.2rem;
   font-weight: bold;
   padding: 0;
+  margin: 0;
   list-style: none;
-  width: fit-content;
 }
 .Header li
 {
@@ -29,17 +65,39 @@
 {
   border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
-.Header li:hover
+/*.Header li:hover
 {
   background-color: rgba(0, 0, 0, .2);
-}
+}*/
 .Header a[href]
 {
-  color: #fff;
+  color: inherit;
   text-decoration: none;
 }
 .Header li a[href]
 {
   display: block;
   padding: 10px;
+}
+@media (min-width: 900px)
+{
+  .Header
+  {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0) 100%);
+    padding: 0 20px;
+  }
+  .Header h1
+  {
+    font-size: 2.4rem;
+    height: 100%;
+    width: 0;
+  }
+  .Header nav
+  {
+    font-size: 1.2rem;
+  }
+  .Header ul
+  {
+    width: fit-content;
+  }
 }

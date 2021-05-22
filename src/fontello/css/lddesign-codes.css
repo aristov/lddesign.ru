@@ -5,8 +5,12 @@
 .icon-up-open:before { content: '\e803'; } /* '' */
 .icon-phone:before { content: '\e804'; } /* '' */
 .icon-mail:before { content: '\e805'; } /* '' */
+.icon-cancel:before { content: '\e806'; } /* '' */
+.icon-cancel-circled:before { content: '\e807'; } /* '' */
+.icon-cancel-circled2:before { content: '\e808'; } /* '' */
 .icon-phone-squared:before { content: '\f098'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
 .icon-angle-left:before { content: '\f104'; } /* '' */
 .icon-angle-right:before { content: '\f105'; } /* '' */

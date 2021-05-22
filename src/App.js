@@ -5,8 +5,27 @@ import './App.css'
 function App() {
   return (
     <div className="App">
+      <Header/>
       <SlideShow/>
     </div>
+  )
+}
+
+function Header(props) {
+  return (
+    <header className="Header">
+      <h1>Лариса Дедловская</h1>
+      <nav>
+        <ul>
+          <li><a href="/classic">Классика</a></li>
+          <li><a href="/loft">Лофты</a></li>
+          <li><a href="/exterior">Экстерьер</a></li>
+          <li><a href="/design">Проектирование</a></li>
+          <li><a href="/blog">Блог</a></li>
+          <li><a href="/contact">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
   )
 }
 

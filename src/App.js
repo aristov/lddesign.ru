@@ -1,6 +1,7 @@
 import React from 'react'
 import { SlideShow } from './SlideShow'
 import { Header } from './Header'
+import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 
 class App extends React.Component
@@ -23,18 +24,31 @@ class App extends React.Component
   render() {
     const { open, data } = this.state
     return (
-      <div className={ open? 'App open' : 'App' }>
-        <div className="Inner">{
-          data?
-            <>
-              <Header open={ open } data={ data } onClick={ this.onClick }/>
-              <SlideShow album={ data[0] }/>
-            </> :
-            <div className="Loading">Loading...</div>
-        }</div>
-      </div>
+      <BrowserRouter>
+        <div className={ open? 'App open' : 'App' }>
+          <div className="Inner">{
+            data?
+              <>
+                <Header open={ open } data={ data } onClick={ this.onClick }/>
+                <Switch>
+                  <Route path="/Классика">
+                    <SubSlideShow album={ data[1].items[0] } dir={ data[1].dir }/>
+                  </Route>
+                  <Route path="/">
+                    <SlideShow album={ data[0] }/>
+                  </Route>
+                </Switch>
+              </> :
+              <div className="Loading">Loading...</div>
+          }</div>
+        </div>
+      </BrowserRouter>
     )
   }
+}
+
+function SubSlideShow(props) {
+  return <SlideShow {...props}/>
 }
 
 export default App

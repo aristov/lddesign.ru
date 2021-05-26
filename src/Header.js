@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 export class Header extends React.Component
@@ -16,7 +17,7 @@ export class Header extends React.Component
     return (
       <header className="Header">
         <div className="Inner">
-          <h1><a href="/">Лариса Дедловская</a></h1>
+          <h1><Link to="/">Лариса Дедловская</Link></h1>
           <button className="MenuButton" onClick={ this.props.onClick }>
             <span className={ this.props.open? 'icon icon-cancel' : 'icon icon-menu' }/>
           </button>
@@ -25,10 +26,10 @@ export class Header extends React.Component
           <ul>
             {
               this.props.data.slice(1).map(item => {
-                return <li key={ item.dir }><a href={ '/' + item.name }>{ item.name }</a></li>
+                return <li key={ item.dir }><Link to={ '/' + item.name }>{ item.name }</Link></li>
               })
             }
-            <li><a href="/Контакты">Контакты</a></li>
+            <li><Link to="/Контакты">Контакты</Link></li>
           </ul>
           <div className="Social">
             <a target="_blank" rel="noreferrer" href="https://www.instagram.com/design.ld/">

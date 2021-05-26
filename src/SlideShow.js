@@ -15,7 +15,7 @@ export class SlideShow extends React.Component
   }
 
   render() {
-    const dir = this.props.album.dir
+    const dir = [this.props.dir, this.props.album.dir].filter(Boolean).join('/')
     return (
       <div className="SlideShow">
         <div className="SlideList"
@@ -74,7 +74,7 @@ export class SlideShow extends React.Component
 function SlideItem(props) {
   return (
     <div className="SlideItem" style={ {
-      backgroundImage : `url(data/${ props.url })`,
+      backgroundImage : `url(/data/${ props.url })`,
       left : (props.index - 1) * 100 + '%',
     } }/>
   )

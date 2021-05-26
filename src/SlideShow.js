@@ -15,7 +15,7 @@ export class SlideShow extends React.Component
   }
 
   render() {
-    const dir = this.props.album.name
+    const dir = this.props.album.dir
     return (
       <div className="SlideShow">
         <div className="SlideList"

@@ -35,7 +35,7 @@ async function build(itemName) {
     const result = await build(path.join(itemName, item))
     result && items.push(result)
   }
-  return { name : normalize(base), displayName : format(base), items }
+  return { dir : normalize(base), name : format(base), items }
 }
 
 function normalize(name) {

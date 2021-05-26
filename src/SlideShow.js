@@ -71,7 +71,6 @@ export class SlideShow extends React.Component
   }
 }
 
-
 function SlideItem(props) {
   return (
     <div className="SlideItem" style={ {

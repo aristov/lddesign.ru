@@ -27,7 +27,7 @@ class App extends React.Component
         <div className="Inner">{
           data?
             <>
-              <Header open={ open } onClick={ this.onClick }/>
+              <Header open={ open } data={ data } onClick={ this.onClick }/>
               <SlideShow album={ data[0] }/>
             </> :
             <div className="Loading">Loading...</div>

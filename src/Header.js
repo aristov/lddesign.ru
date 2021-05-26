@@ -23,12 +23,12 @@ export class Header extends React.Component
         </div>
         <nav>
           <ul>
-            <li><a href="/classic">Классика</a></li>
-            <li><a href="/loft">Лофты</a></li>
-            <li><a href="/exterior">Экстерьер</a></li>
-            <li><a href="/design">Проектирование</a></li>
-            <li><a href="/blog">Блог</a></li>
-            <li><a href="/contact">Контакты</a></li>
+            {
+              this.props.data.slice(1).map(item => {
+                return <li key={ item.dir }><a href={ '/' + item.name }>{ item.name }</a></li>
+              })
+            }
+            <li><a href="/Контакты">Контакты</a></li>
           </ul>
           <div className="Social">
             <a target="_blank" rel="noreferrer" href="https://www.instagram.com/design.ld/">

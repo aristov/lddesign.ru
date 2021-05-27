@@ -23,11 +23,11 @@ class App extends React.Component
             continue
           }
           for(const album of group.items) {
-            routes.push(<Route path={ '/' + album.dir }><SlideShow album={ album }/></Route>)
+            routes.push(<Route key={ album.dir } path={ '/' + album.dir }><SlideShow album={ album }/></Route>)
           }
-          routes.push(<Route path={ '/' + group.dir }><AlbumGroup group={ group }/></Route>)
+          routes.push(<Route key={ group.dir } path={ '/' + group.dir }><AlbumGroup group={ group }/></Route>)
         }
-        routes.push(<Route path="/" exact><SlideShow album={ data[0] }/></Route>)
+        routes.push(<Route key="/" path="/" exact><SlideShow album={ data[0] }/></Route>)
       }
       this._routes = routes
       this.setState({ data })

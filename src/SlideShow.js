@@ -22,9 +22,9 @@ export class SlideShow extends React.Component
         <div className="SlideList"
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
-          slice.map((item, i) => {
-            return <SlideItem key={ item } url={ dir + '/' + item } index={ i }/>
-          })
+          slice.map((item, i) => (
+            <SlideItem key={ item } url={ dir + '/' + item } index={ i }/>
+          ))
         }</div>
         <div className="SlideControl">
           <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>

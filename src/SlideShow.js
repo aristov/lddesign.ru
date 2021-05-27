@@ -63,7 +63,7 @@ export class SlideShow extends React.Component
   }
 
   onClick(e) {
-    this.switchSlide(e.screenX < window.innerWidth / 2? -1 : 1)
+    this.switchSlide(e.pageX < window.innerWidth / 2? -1 : 1)
   }
 
   onTransitionEnd() {

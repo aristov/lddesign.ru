@@ -22,12 +22,14 @@ async function build(itemName) {
       return null
     }
     const destName = normalize(name) + '.jpg'
-    const destPath = path.join(cwd, OUTPUT_PATH, normalize(dir), destName)
+    const dirName = dir.split('/').map(chunk => normalize(chunk)).join('/')
+    const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
     await sharp(fs.readFileSync(srcPath)).resize(options).toFile(destPath)
     console.log(destPath)
     return destName
   }
-  const destPath = path.join(cwd, OUTPUT_PATH, normalize(itemName))
+  const dirName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
+  const destPath = path.join(cwd, OUTPUT_PATH, dirName)
   const items = []
   fs.mkdirSync(destPath)
   console.log(destPath)
@@ -35,11 +37,15 @@ async function build(itemName) {
     const result = await build(path.join(itemName, item))
     result && items.push(result)
   }
-  return { dir : normalize(base), name : format(base), items }
+  return {
+    dir : dirName.slice(1),
+    name : format(base),
+    items,
+  }
 }
 
 function normalize(name) {
-  return name.trim().replace(/\s+/g, '_')
+  return name.trim().replace(/^\d\s/, '').replace(/[,.]/g, '').replace(/\s+/g, '_')
 }
 
 function format(name) {
@@ -52,4 +58,5 @@ build('/').then(result => {
   const filePath = path.join(cwd, OUTPUT_PATH, 'data.json')
   const json = JSON.stringify(result.items, null, 2)
   fs.writeFileSync(filePath, json)
+  console.log(json)
 })

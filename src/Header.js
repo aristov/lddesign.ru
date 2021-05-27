@@ -4,15 +4,6 @@ import './Header.css'
 
 export class Header extends React.Component
 {
-  /*constructor(props) {
-    super(props)
-    this.state = { open : false }
-  }
-
-  onClick = () => {
-    this.setState(state => ({ open : !state.open }))
-  }*/
-
   render() {
     return (
       <header className="Header solid">
@@ -23,12 +14,12 @@ export class Header extends React.Component
           </button>
         </div>
         <nav>
-          <ul>
+          <ul onClick={ this.props.onClick }>
             {
               this.props.data.slice(1).map(item => {
                 return (
                   <li key={ item.dir }>
-                    <Link to={ '/' + item.name } onClick={ this.props.onClick }>{ item.name }</Link>
+                    <Link to={ '/' + item.name }>{ item.name }</Link>
                   </li>
                 )
               })

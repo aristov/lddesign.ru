@@ -30,7 +30,6 @@
 {
   opacity: 1;
 }
-
 .Header ul
 {
   font-weight: bold;
@@ -77,6 +76,11 @@
 .Header .Social a[href]:focus
 {
   opacity: 1;
+}
+.Header.solid
+{
+  position: relative;
+  background: #333;
 }
 @media (max-width: 499px)
 {

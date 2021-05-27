@@ -2,6 +2,7 @@ import React from 'react'
 import { SlideShow } from './SlideShow'
 import { Header } from './Header'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { AlbumGroup } from './AlbumGroup'
 import './App.css'
 
 class App extends React.Component
@@ -31,6 +32,9 @@ class App extends React.Component
               <>
                 <Header open={ open } data={ data } onClick={ this.onClick }/>
                 <Switch>
+                  <Route path="/Лофты">
+                    <AlbumGroup group={ data[2] }/>
+                  </Route>
                   <Route path="/Классика">
                     <SubSlideShow album={ data[1].items[0] } dir={ data[1].dir }/>
                   </Route>
@@ -48,7 +52,7 @@ class App extends React.Component
 }
 
 function SubSlideShow(props) {
-  return <SlideShow {...props}/>
+  return <SlideShow { ...props }/>
 }
 
 export default App

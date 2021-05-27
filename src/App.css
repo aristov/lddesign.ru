@@ -21,6 +21,13 @@
   height: 100%;
   font-size: 2rem;
 }
+
+.App > .Inner
+{
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
 @media (max-width: 499px)
 {
   .App.open > .Inner

@@ -15,7 +15,7 @@ export class Header extends React.Component
 
   render() {
     return (
-      <header className="Header">
+      <header className="Header solid">
         <div className="Inner">
           <h1><Link to="/">Лариса Дедловская</Link></h1>
           <button className="MenuButton" onClick={ this.props.onClick }>

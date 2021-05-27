@@ -45,7 +45,7 @@ async function build(itemName) {
 }
 
 function normalize(name) {
-  return name.trim().replace(/^\d\s/, '').replace(/[,.]/g, '').replace(/\s+/g, '_')
+  return name.trim().replace(/^\d\s/, '').replace(/[,.]/g, '').replace(/[\s()]+/g, '_')
 }
 
 function format(name) {

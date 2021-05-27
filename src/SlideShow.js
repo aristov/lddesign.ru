@@ -5,23 +5,24 @@ export class SlideShow extends React.Component
 {
   constructor(props) {
     super(props)
-    const items = props.album.items
-    this.state = {
-      current : 0,
-      items : [items[items.length - 1], items[0], items[1]],
-    }
+    this.state = { current : 0 }
     this.onClick = this.onClick.bind(this)
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
   render() {
     const dir = [this.props.dir, this.props.album.dir].filter(Boolean).join('/')
+    const current = this.state.current
+    const prev = this.getIndex(current - 1)
+    const next = this.getIndex(current + 1)
+    const items = this.props.album.items
+    const slice = [items[prev], items[current], items[next]]
     return (
       <div className="SlideShow">
         <div className="SlideList"
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
-          this.state.items.map((item, i) => {
+          slice.map((item, i) => {
             return <SlideItem key={ item } url={ dir + '/' + item } index={ i }/>
           })
         }</div>
@@ -29,9 +30,7 @@ export class SlideShow extends React.Component
           <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>
             <span className="icon icon-angle-left"/>
           </button>
-          <div className="SlideCounter">{
-            this.state.current + 1 } / { this.props.album.items.length
-          }</div>
+          <div className="SlideCounter">{ current + 1 } / { items.length }</div>
           <button className="SlideNext" onClick={ () => this.switchSlide(1) }>
             <span className="icon icon-angle-right"/>
           </button>
@@ -44,17 +43,8 @@ export class SlideShow extends React.Component
     if(this._transition) {
       return
     }
-    const items = this.props.album.items
     this._transition = true
-    this.setState(state => {
-      const current = this.getIndex(state.current + shift)
-      const prev = this.getIndex(current - 1)
-      const next = this.getIndex(current + 1)
-      return {
-        current,
-        items : [items[prev], items[current], items[next]],
-      }
-    })
+    this.setState(state => ({ current : this.getIndex(state.current + shift) }))
   }
 
   getIndex(i) {

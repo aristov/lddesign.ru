@@ -27,7 +27,7 @@ export class Header extends React.Component
             <li><Link to="/Контакты">Контакты</Link></li>
           </ul>
           <div className="Social">
-            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/design.ld/">
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/design.ld">
               <span className="icon icon-instagram"/>
             </a>
             <a target="_blank" rel="noreferrer" href="https://facebook.com/larisa.dedlovskaya">

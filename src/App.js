@@ -1,8 +1,9 @@
 import React from 'react'
-import { SlideShow } from './SlideShow'
-import { Header } from './Header'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import { Header } from './Header'
+import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
+import { Contacts } from './Contacts'
 import './App.css'
 
 class App extends React.Component
@@ -31,6 +32,7 @@ class App extends React.Component
             <AlbumGroup group={ group }/>
           </Route>)
         }
+        routes.push(<Route key="Контакты" path="/Контакты"><Contacts/></Route>)
         routes.push(<Route key="/" path="/" exact>
           <SlideShow album={ data[0] } className="homepage"/>
         </Route>)

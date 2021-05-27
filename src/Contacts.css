@@ -1,0 +1,13 @@
+.Contacts
+{
+  padding: 0 20px;
+}
+.Contacts h2
+{
+  font-size: 1.3rem;
+}
+.Contacts hr
+{
+  border: none;
+  border-bottom: 1px dotted rgba(0, 0, 0, .1);
+}

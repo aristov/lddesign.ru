@@ -26,7 +26,11 @@ export class Header extends React.Component
           <ul>
             {
               this.props.data.slice(1).map(item => {
-                return <li key={ item.dir }><Link to={ '/' + item.name }>{ item.name }</Link></li>
+                return (
+                  <li key={ item.dir }>
+                    <Link to={ '/' + item.name } onClick={ this.props.onClick }>{ item.name }</Link>
+                  </li>
+                )
               })
             }
             <li><Link to="/Контакты">Контакты</Link></li>

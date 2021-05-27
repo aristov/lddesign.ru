@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './AlbumGroup.css'
 
 export function AlbumGroup(props) {
@@ -15,10 +16,13 @@ export function AlbumGroup(props) {
 }
 
 function AlbumItem(props) {
+  const dir = props.album.dir
   const url = ['/data', props.album.dir, props.album.items[0]].join('/')
   return (
-    <div className="AlbumItem" style={ { backgroundImage : `url(${ url })` } }>
+    <Link to={ '/' + dir }
+          className="AlbumItem"
+          style={ { backgroundImage : `url(${ url })` } }>
       <div className="AlbumInfo">{ props.album.name }</div>
-    </div>
+    </Link>
   )
 }

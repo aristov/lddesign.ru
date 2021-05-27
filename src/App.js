@@ -24,6 +24,12 @@ class App extends React.Component
 
   render() {
     const { open, data } = this.state
+    const index = {}
+    if(data) {
+      for(const item of data) {
+        index['/' + item.dir] = item
+      }
+    }
     return (
       <BrowserRouter>
         <div className={ open? 'App open' : 'App' }>
@@ -32,12 +38,13 @@ class App extends React.Component
               <>
                 <Header open={ open } data={ data } onClick={ this.onClick }/>
                 <Switch>
-                  <Route path="/Лофты">
-                    <AlbumGroup group={ data[2] }/>
-                  </Route>
-                  <Route path="/Классика">
-                    <SubSlideShow album={ data[1].items[0] } dir={ data[1].dir }/>
-                  </Route>
+                  {
+                    data.slice(1).map(group => (
+                      <Route key={ group.dir } path={ '/' + group.dir }>
+                        <AlbumGroup group={ group }/>
+                      </Route>
+                    ))
+                  }
                   <Route path="/">
                     <SlideShow album={ data[0] }/>
                   </Route>
@@ -49,10 +56,6 @@ class App extends React.Component
       </BrowserRouter>
     )
   }
-}
-
-function SubSlideShow(props) {
-  return <SlideShow { ...props }/>
 }
 
 export default App

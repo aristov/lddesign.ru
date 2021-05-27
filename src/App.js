@@ -30,6 +30,19 @@ class App extends React.Component
         index['/' + item.dir] = item
       }
     }
+    const routes = []
+    if(data) {
+      for(const group of data.slice(1)) {
+        if(!group.items) {
+          continue
+        }
+        for(const album of group.items) {
+          routes.push(<Route path={ '/' + album.dir }><SlideShow album={ album }/></Route>)
+        }
+        routes.push(<Route path={ '/' + group.dir }><AlbumGroup group={ group }/></Route>)
+      }
+      routes.push(<Route path="/" exact><SlideShow album={ data[0] }/></Route>)
+    }
     return (
       <BrowserRouter>
         <div className={ open? 'App open' : 'App' }>
@@ -37,18 +50,7 @@ class App extends React.Component
             data?
               <>
                 <Header open={ open } data={ data } onClick={ this.onClick }/>
-                <Switch>
-                  {
-                    data.slice(1).map(group => (
-                      <Route key={ group.dir } path={ '/' + group.dir }>
-                        <AlbumGroup group={ group }/>
-                      </Route>
-                    ))
-                  }
-                  <Route path="/">
-                    <SlideShow album={ data[0] }/>
-                  </Route>
-                </Switch>
+                <Switch>{ routes }</Switch>
               </> :
               <div className="Loading">Loading...</div>
           }</div>

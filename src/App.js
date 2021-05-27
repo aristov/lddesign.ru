@@ -15,7 +15,23 @@ class App extends React.Component
   componentDidMount() {
     fetch('/data/data.json')
     .then(res => res.json())
-    .then(data => this.setState({ data }))
+    .then(data => {
+      const routes = []
+      if(data) {
+        for(const group of data.slice(1)) {
+          if(!group.items) {
+            continue
+          }
+          for(const album of group.items) {
+            routes.push(<Route path={ '/' + album.dir }><SlideShow album={ album }/></Route>)
+          }
+          routes.push(<Route path={ '/' + group.dir }><AlbumGroup group={ group }/></Route>)
+        }
+        routes.push(<Route path="/" exact><SlideShow album={ data[0] }/></Route>)
+      }
+      this._routes = routes
+      this.setState({ data })
+    })
   }
 
   onClick = () => {
@@ -24,25 +40,6 @@ class App extends React.Component
 
   render() {
     const { open, data } = this.state
-    const index = {}
-    if(data) {
-      for(const item of data) {
-        index['/' + item.dir] = item
-      }
-    }
-    const routes = []
-    if(data) {
-      for(const group of data.slice(1)) {
-        if(!group.items) {
-          continue
-        }
-        for(const album of group.items) {
-          routes.push(<Route path={ '/' + album.dir }><SlideShow album={ album }/></Route>)
-        }
-        routes.push(<Route path={ '/' + group.dir }><AlbumGroup group={ group }/></Route>)
-      }
-      routes.push(<Route path="/" exact><SlideShow album={ data[0] }/></Route>)
-    }
     return (
       <BrowserRouter>
         <div className={ open? 'App open' : 'App' }>
@@ -50,7 +47,7 @@ class App extends React.Component
             data?
               <>
                 <Header open={ open } data={ data } onClick={ this.onClick }/>
-                <Switch>{ routes }</Switch>
+                <Switch>{ this._routes }</Switch>
               </> :
               <div className="Loading">Loading...</div>
           }</div>

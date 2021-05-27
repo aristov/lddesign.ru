@@ -82,8 +82,8 @@
   position: relative;
   background: #333;
 }
-@media (max-width: 499px)
-{
+/*@media (max-width: 499px)
+{*/
   .Header > .Inner
   {
     display: grid;
@@ -104,8 +104,8 @@
     background-color: #333;
     z-index: 2;
   }
-}
-@media (min-width: 500px)
+/*}*/
+/*@media (min-width: 500px)
 {
   .Header
   {
@@ -145,4 +145,4 @@
   {
     display: none;
   }
-}
+}*/

@@ -11,18 +11,19 @@ export class SlideShow extends React.Component
   }
 
   render() {
-    const dir = [this.props.dir, this.props.album.dir].filter(Boolean).join('/')
+    const album = this.props.album
+    const dir = [this.props.dir, album.dir].filter(Boolean).join('/')
     const current = this.state.current
     const prev = this.getIndex(current - 1)
     const next = this.getIndex(current + 1)
-    const items = this.props.album.items
-    const slice = [items[prev], items[current], items[next]]
+    const items = [album.items[prev], album.items[current], album.items[next]]
     return (
-      <div className="SlideShow">
+      <div className={ ['SlideShow', this.props.className].filter(Boolean).join(' ') }>
+        <h2>{ album.name }</h2>
         <div className="SlideList"
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
-          slice.map((item, i) => (
+          items.map((item, i) => (
             <SlideItem key={ item } url={ dir + '/' + item } index={ i }/>
           ))
         }</div>
@@ -30,7 +31,7 @@ export class SlideShow extends React.Component
           <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>
             <span className="icon icon-angle-left"/>
           </button>
-          <div className="SlideCounter">{ current + 1 } / { items.length }</div>
+          <div className="SlideCounter">{ current + 1 } / { album.items.length }</div>
           <button className="SlideNext" onClick={ () => this.switchSlide(1) }>
             <span className="icon icon-angle-right"/>
           </button>

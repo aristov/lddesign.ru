@@ -57,21 +57,43 @@
   grid-template-rows: auto 1fr;
 }
 
-/*@media (max-width: 499px)
-{*/
+@media (max-width: 899px)
+{
   .App.open > .Inner
   {
     left: -80%;
   }
-/*}*/
-@media (min-width: 500px)
+}
+@media (min-width: 500px) and (max-width: 899px)
 {
   .App.open > .Inner
   {
     left: -400px;
   }
-  .App nav
+  .App .Header nav
   {
     width: 400px;
+  }
+}
+@media (min-width: 900px)
+{
+  .App > .Inner
+  {
+    grid-template-rows: auto;
+    grid-template-columns: auto 1fr;
+  }
+  .App .Header nav
+  {
+    width: 100%;
+  }
+  .App .Main
+  {
+    padding: 0 30px;
+  }
+  .App .Main h2
+  {
+    font-size: 1.3rem;
+    padding: 10px 0;
+    margin: 14px 0;
   }
 }

@@ -5,6 +5,7 @@
   /*line-height: 0;*/
   color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  position: relative;
 }
 .SlideShow,
 .SlideShow .SlideList,
@@ -80,5 +81,12 @@
   .SlideShow h2
   {
     font-size: 1rem;
+  }
+}
+@media (min-width: 900px)
+{
+  .SlideShow h2
+  {
+    text-align: right;
   }
 }

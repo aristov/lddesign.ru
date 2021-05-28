@@ -9,17 +9,17 @@ export class Header extends React.Component
       <header className="Header solid">
         <div className="Inner">
           <h1><Link to="/">Лариса Дедловская</Link></h1>
-          <button className="MenuButton" onClick={ this.props.onClick }>
+          <button className="MenuButton" onClick={ this.props.onToggle }>
             <span className={ this.props.open? 'icon icon-cancel' : 'icon icon-menu' }/>
           </button>
         </div>
         <nav>
-          <ul onClick={ this.props.onClick }>
+          <ul onClick={ this.props.onMenuItemClick }>
             {
               this.props.data.slice(1).map(item => {
                 return (
                   <li key={ item.dir }>
-                    <Link to={ '/' + item.name }>{ item.name }</Link>
+                    <Link to={ '/' + item.dir }>{ item.name }</Link>
                   </li>
                 )
               })

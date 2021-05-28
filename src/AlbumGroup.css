@@ -63,7 +63,7 @@
   {
     top: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, .7);
+    background: rgba(255, 255, 255, .8);
     opacity: 0;
     transition: opacity .3s;
     text-shadow: none;

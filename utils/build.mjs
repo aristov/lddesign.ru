@@ -26,7 +26,10 @@ async function build(itemName) {
       const destName = normalize(name) + '.pdf'
       const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
       fs.copyFileSync(srcPath, destPath)
-      return destName
+      return {
+        name : name.replace(/^\d+\s/, ''),
+        file : [dirName.slice(1), destName].join('/'),
+      }
     }
     const destName = normalize(name) + '.jpg'
     const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
@@ -37,7 +40,7 @@ async function build(itemName) {
   const dirName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
   const destPath = path.join(cwd, OUTPUT_PATH, dirName)
   const items = []
-  fs.mkdirSync(destPath)
+  fs.existsSync(destPath) || fs.mkdirSync(destPath)
   console.log(destPath)
   for(const item of fs.readdirSync(srcPath)) {
     const result = await build(path.join(itemName, item))

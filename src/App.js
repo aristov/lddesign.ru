@@ -23,9 +23,12 @@ class App extends React.Component
           if(!group.items) {
             continue
           }
-          for(const album of group.items) {
-            routes.push(<Route key={ album.dir } path={ '/' + album.dir }>
-              <SlideShow album={ album }/>
+          for(const item of group.items) {
+            if(item.file) {
+              continue
+            }
+            routes.push(<Route key={ item.dir } path={ '/' + item.dir }>
+              <SlideShow album={ item }/>
             </Route>)
           }
           routes.push(<Route key={ group.dir } path={ '/' + group.dir }>

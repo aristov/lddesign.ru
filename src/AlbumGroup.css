@@ -35,6 +35,15 @@
   font-size: .9rem;
   background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
+.AlbumGroup .FileLink
+{
+  display: block;
+  margin: 10px 20px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .05);
+  text-decoration: none;
+}
 /*@media (min-width: 500px)
 {
   .AlbumGroup .AlbumInfo

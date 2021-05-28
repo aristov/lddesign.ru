@@ -5,7 +5,7 @@ import sharp from 'sharp'
 const cwd = process.cwd()
 const INPUT_PATH = './tmp/media'
 const OUTPUT_PATH = './public/data'
-const IMAGE_SIZE = 1024
+const IMAGE_SIZE = 1200
 const options = {
   width : IMAGE_SIZE,
   height : IMAGE_SIZE,
@@ -18,11 +18,17 @@ async function build(itemName) {
   const srcPath = path.join(cwd, INPUT_PATH, itemName)
   const stats = fs.statSync(srcPath)
   if(!stats.isDirectory()) {
-    if(!/\.(png|jpg|tif)$/i.test(ext)) {
+    if(!/\.(png|jpg|tif|pdf)$/i.test(ext)) {
       return null
     }
-    const destName = normalize(name) + '.jpg'
     const dirName = dir.split('/').map(chunk => normalize(chunk)).join('/')
+    if(ext === '.pdf') {
+      const destName = normalize(name) + '.pdf'
+      const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
+      fs.copyFileSync(srcPath, destPath)
+      return destName
+    }
+    const destName = normalize(name) + '.jpg'
     const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
     await sharp(fs.readFileSync(srcPath)).resize(options).toFile(destPath)
     console.log(destPath)

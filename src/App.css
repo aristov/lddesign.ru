@@ -41,7 +41,15 @@
   border-bottom: 1px dotted rgba(0, 0, 0, .1);
   margin: 30px 0;
 }
-
+.App .Error
+{
+  font-size: 7rem;
+  opacity: .2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .App > .Inner
 {

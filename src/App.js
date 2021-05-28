@@ -48,6 +48,9 @@ class App extends React.Component
         routes.push(<Route key="/" path="/" exact>
           <SlideShow album={ data[0] } className="homepage"/>
         </Route>)
+        routes.push(<Route key="/404" path="/">
+          <main className="Main"><div className="Error">404</div></main>
+        </Route>)
       }
       this._routes = routes
       this.setState({ data })

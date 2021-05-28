@@ -29,6 +29,7 @@ body #root
 a[href]
 {
   outline: none;
+  color: #00a;
 }
 .icon::before
 {

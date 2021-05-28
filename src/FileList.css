@@ -1,0 +1,13 @@
+.FileList .FileLink
+{
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.FileList .FileLink .icon
+{
+  font-size: 1.5rem;
+  margin-right: 10px;
+}

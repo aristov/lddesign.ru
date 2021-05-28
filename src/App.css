@@ -21,6 +21,27 @@
   height: 100%;
   font-size: 2rem;
 }
+.App .Main
+{
+  height: 100%;
+  overflow: auto;
+}
+.App .Main
+{
+  padding: 0 20px;
+}
+.App .Main h2
+{
+  font-size: 1.3rem;
+  margin-top: 30px;
+}
+.App .Main hr
+{
+  border: none;
+  border-bottom: 1px dotted rgba(0, 0, 0, .1);
+  margin: 30px 0;
+}
+
 
 .App > .Inner
 {
@@ -35,3 +56,14 @@
     left: -80%;
   }
 /*}*/
+@media (min-width: 500px)
+{
+  .App.open > .Inner
+  {
+    left: -400px;
+  }
+  .App nav
+  {
+    width: 400px;
+  }
+}

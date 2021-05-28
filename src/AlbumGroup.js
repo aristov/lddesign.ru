@@ -8,12 +8,7 @@ export function AlbumGroup(props) {
   return (
     <div className="AlbumGroup">
       <div className="AlbumItem"><h2>{ props.group.name }</h2></div>
-      { props.group.items.map(item => {
-        if(item.file) {
-          return <FileLink key={ item.file } item={ item }/>
-        }
-        return <AlbumItem key={ item.dir } album={ item }/>
-      }) }
+      { props.group.items.map(item => <AlbumItem key={ item.dir } album={ item }/>) }
     </div>
   )
 }
@@ -28,11 +23,4 @@ function AlbumItem(props) {
       <div className="AlbumInfo">{ props.album.name }</div>
     </Link>
   )
-}
-
-function FileLink(props) {
-  const to = [DATA_DIR, props.item.file].join('/')
-  return <Link className="FileLink" to={ to } target="_blank" rel="noreferrer">{
-    props.item.name
-  }</Link>
 }

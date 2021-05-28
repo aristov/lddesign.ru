@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import { Header } from './Header'
 import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
+import { FileList } from './FileList'
 import { Contacts } from './Contacts'
 import './App.css'
 
@@ -31,11 +32,19 @@ class App extends React.Component
               <SlideShow album={ item }/>
             </Route>)
           }
+          if(group.items[0].file) {
+            routes.push(<Route key={ group.dir } path={ '/' + group.dir }>
+              <main className="Main"><FileList group={ group }/></main>
+            </Route>)
+            continue
+          }
           routes.push(<Route key={ group.dir } path={ '/' + group.dir }>
             <AlbumGroup group={ group }/>
           </Route>)
         }
-        routes.push(<Route key="Контакты" path="/Контакты"><Contacts/></Route>)
+        routes.push(<Route key="Контакты" path="/Контакты">
+          <main className="Main"><Contacts/></main>
+        </Route>)
         routes.push(<Route key="/" path="/" exact>
           <SlideShow album={ data[0] } className="homepage"/>
         </Route>)

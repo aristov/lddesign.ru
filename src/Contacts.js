@@ -22,28 +22,28 @@ export function Contacts() {
          target="_blank"
          rel="noreferrer">
         <span className="icon icon-instagram"/>
-        instagram.com/design.ld
+        design.ld
       </a>
       <a className="ContactsLink"
          href="https://facebook.com/larisa.dedlovskaya"
          target="_blank"
          rel="noreferrer">
         <span className="icon icon-facebook"/>
-        facebook.com/larisa.dedlovskaya
+        larisa.dedlovskaya
       </a>
       <a className="ContactsLink"
          href="https://vk.com/larisadedlovskaya"
          target="_blank"
          rel="noreferrer">
         <span className="icon icon-vkontakte"/>
-        vk.com/larisadedlovskaya
+        larisadedlovskaya
       </a>
       <a className="ContactsLink"
          href="https://mona.livejournal.com"
          target="_blank"
          rel="noreferrer">
         <span className="icon icon-livejournal"/>
-        mona.livejournal.com
+        mona
       </a>
     </div>
   )

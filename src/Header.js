@@ -34,6 +34,9 @@ export class Header extends React.Component
               <a target="_blank" rel="noreferrer" href="https://facebook.com/larisa.dedlovskaya">
                 <span className="icon icon-facebook"/>
               </a>
+              <a target="_blank" rel="noreferrer" href="https://mona.livejournal.com">
+                <span className="icon icon-livejournal"/>
+              </a>
               <a target="_blank" rel="noreferrer" href="https://vk.com/larisadedlovskaya">
                 <span className="icon icon-vkontakte"/>
               </a>

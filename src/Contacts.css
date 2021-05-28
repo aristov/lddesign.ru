@@ -1,3 +1,8 @@
+.Contacts dd
+{
+  margin: 5px 0 30px;
+  font-size: 1.2rem;
+}
 .Contacts .SocialLink
 {
   padding: 10px 0;

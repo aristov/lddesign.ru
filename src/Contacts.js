@@ -6,11 +6,16 @@ export function Contacts() {
     <div className="Contacts">
       <h2>Контакты</h2>
       <hr/>
-      <p>Эл. почта: <a href="mailto:lddesign@mail.ru">lddesign@mail.ru</a></p>
-      <p>Телефон: <a href="tel:+79257711473">+7 925 771 1473</a></p>
-      <p>LiveJournal: <a href="https://mona.livejournal.com"
-                         target="_blank"
-                         rel="noreferrer">mona</a></p>
+      <a className="SocialLink"
+         href="mailto:lddesign@mail.ru">
+        <span className="icon icon-mail"/>
+        lddesign@mail.ru
+      </a>
+      <a className="SocialLink"
+         href="tel:+79257711473">
+        <span className="icon icon-phone"/>
+        +7 925 771 1473
+      </a>
       <hr/>
       <a className="SocialLink"
          href="https://instagram.com/design.ld"
@@ -32,6 +37,13 @@ export function Contacts() {
          rel="noreferrer">
         <span className="icon icon-vkontakte"/>
         vk.com/larisadedlovskaya
+      </a>
+      <a className="SocialLink"
+         href="https://mona.livejournal.com"
+         target="_blank"
+         rel="noreferrer">
+        <span className="icon icon-livejournal"/>
+        mona.livejournal.com
       </a>
     </div>
   )

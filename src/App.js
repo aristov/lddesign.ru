@@ -60,7 +60,7 @@ class App extends React.Component
                 <Header open={ open } data={ data } onClick={ this.onClick }/>
                 <Switch>{ this._routes }</Switch>
               </> :
-              <div className="Loading">Loading...</div>
+              <div className="Loading">Загрузка...</div>
           }</div>
         </div>
       </BrowserRouter>

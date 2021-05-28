@@ -7,15 +7,13 @@ const DATA_DIR = '/data'
 export function AlbumGroup(props) {
   return (
     <div className="AlbumGroup">
-      <h2>{ props.group.name }</h2>
-      <div className="AlbumList">
-        { props.group.items.map(item => {
-          if(item.file) {
-            return <FileLink key={ item.file } item={ item }/>
-          }
-          return <AlbumItem key={ item.dir } album={ item }/>
-        }) }
-      </div>
+      <div className="AlbumItem"><h2>{ props.group.name }</h2></div>
+      { props.group.items.map(item => {
+        if(item.file) {
+          return <FileLink key={ item.file } item={ item }/>
+        }
+        return <AlbumItem key={ item.dir } album={ item }/>
+      }) }
     </div>
   )
 }

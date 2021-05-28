@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
   z-index: 1;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);*/
   color: #fff;
 }
 .Header h1
@@ -41,7 +41,7 @@
 {
   transition: background-color .2s;
 }
-.Header li:not(:last-child)
+.Header li
 {
   border-bottom: 1px solid rgba(255, 255, 255, .05);
 }
@@ -57,14 +57,9 @@
 }
 .Header .Social
 {
-  width: 100%;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 10px;
-  box-sizing: border-box;
+  padding: 20px;
   font-size: 1.4rem;
+  margin-top: 20px;
 }
 .Header .Social a[href]
 {
@@ -77,9 +72,15 @@
 {
   opacity: 1;
 }
-.Header .Social small
+.Header small
 {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   font-size: .6rem;
+  padding: 10px;
 }
 .Header.solid
 {

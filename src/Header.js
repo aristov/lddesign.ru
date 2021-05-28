@@ -38,10 +38,10 @@ export class Header extends React.Component
                 <span className="icon icon-vkontakte"/>
               </a>
             </div>
-            <small>
-              © { (new Date()).getFullYear() } Лариса Дедловская
-            </small>
           </div>
+          <small>
+            © { (new Date()).getFullYear() } Лариса Дедловская
+          </small>
         </nav>
       </header>
     )

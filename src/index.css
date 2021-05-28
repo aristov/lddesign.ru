@@ -21,6 +21,11 @@ a[href]
   outline: none;
   color: #00a;
 }
+a[href]:hover,
+a[href]:focus
+{
+  color: #00f;
+}
 .icon::before
 {
   margin: 0;

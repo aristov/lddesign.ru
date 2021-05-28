@@ -3,7 +3,7 @@
   margin: 5px 0 30px;
   font-size: 1.2rem;
 }
-.Contacts .SocialLink
+.Contacts .ContactsLink
 {
   padding: 10px 0;
   display: flex;
@@ -11,7 +11,7 @@
   width: fit-content;
   text-decoration: none;
 }
-.Contacts .SocialLink .icon
+.Contacts .ContactsLink .icon
 {
   font-size: 1.4rem;
   margin-right: 15px;

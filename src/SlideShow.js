@@ -28,19 +28,39 @@ export class SlideShow extends React.Component
           ))
         }</div>
         <div className="SlideControl">
-          <button className="SlidePrev" onClick={ () => this.switchSlide(-1) }>
+          <button className="SlidePrev" onClick={ () => this.switchSlide(-1, true) }>
             <span className="icon icon-angle-left"/>
           </button>
           <div className="SlideCounter">{ current + 1 } / { album.items.length }</div>
-          <button className="SlideNext" onClick={ () => this.switchSlide(1) }>
+          <button className="SlideNext" onClick={ () => this.switchSlide(1, true) }>
             <span className="icon icon-angle-right"/>
           </button>
         </div>
       </div>
     )
   }
+  
+  componentDidMount() {
+    this.props.auto && this.tick()
+  }
 
-  switchSlide(shift) {
+  componentWillUnmount() {
+    this._timer && clearTimeout(this._timer)
+    this._timer = null
+  }
+
+  tick() {
+    this._timer = setTimeout(() => {
+      this.switchSlide(1)
+      this.tick()
+    }, 6000)
+  }
+
+  switchSlide(shift, stop = false) {
+    if(stop) {
+      this._timer && clearTimeout(this._timer)
+      this._timer = null
+    }
     if(this._transition) {
       return
     }
@@ -54,7 +74,7 @@ export class SlideShow extends React.Component
   }
 
   onClick() {
-    this.switchSlide(1)
+    this.switchSlide(1, true)
   }
 
   onTransitionEnd() {

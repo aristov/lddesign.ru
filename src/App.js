@@ -47,7 +47,7 @@ class App extends React.Component
           <main className="Main"><Contacts/></main>
         </Route>)
         routes.push(<Route key="/" path="/" exact>
-          <SlideShow album={ data[0] }/>
+          <SlideShow album={ data[0] } auto/>
         </Route>)
         routes.push(<Route key="/404" path="/">
           <main className="Main">

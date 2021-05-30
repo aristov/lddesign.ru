@@ -47,7 +47,14 @@ export class SlideShow extends React.Component
   componentDidMount() {
     this.props.auto && this.tick()
     this._hammertime = new Hammer(this._list.current)
-    this._hammertime.on('swipe', e => this.switchSlide(3 - e.direction))
+    this._hammertime.on('swipe', e => {
+      if(e.direction === Hammer.DIRECTION_LEFT) {
+        this.switchSlide(1, true)
+      }
+      else if(e.direction === Hammer.DIRECTION_RIGHT) {
+        this.switchSlide(-1, true)
+      }
+    })
   }
 
   componentWillUnmount() {

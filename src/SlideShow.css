@@ -16,6 +16,11 @@
 {
   position: relative;
   white-space: nowrap;
+  cursor: grab;
+}
+.SlideShow .SlideList:active
+{
+  cursor: grabbing;
 }
 .SlideShow .SlideItem
 {

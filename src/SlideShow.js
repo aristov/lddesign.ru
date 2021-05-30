@@ -1,11 +1,14 @@
 import React from 'react'
 import './SlideShow.css'
 
+const { Hammer } = window
+
 export class SlideShow extends React.Component
 {
   constructor(props) {
     super(props)
     this.state = { current : 0 }
+    this._list = React.createRef()
     this.onClick = this.onClick.bind(this)
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
@@ -21,6 +24,7 @@ export class SlideShow extends React.Component
       <div className="SlideShow">
         <h2>{ album.name }</h2>
         <div className="SlideList"
+             ref={ this._list }
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
           items.map((item, i) => (
@@ -39,14 +43,17 @@ export class SlideShow extends React.Component
       </div>
     )
   }
-  
+
   componentDidMount() {
     this.props.auto && this.tick()
+    this._hammertime = new Hammer(this._list.current)
+    this._hammertime.on('swipe', e => this.switchSlide(3 - e.direction))
   }
 
   componentWillUnmount() {
     this._timer && clearTimeout(this._timer)
     this._timer = null
+    this._hammertime.off('swipe')
   }
 
   tick() {

@@ -2,19 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
+const { Hammer } = window
+
 export class Header extends React.Component
 {
+  constructor(props) {
+    super(props)
+    this._nav = React.createRef()
+  }
+
   render() {
     return (
       <header className="Header">
         <div className="Inner">
           <h1><a href="/">Лариса Дедловская</a></h1>
-          <button className="MenuButton" onClick={ this.props.onToggle }>
+          <button className="MenuButton" onClick={ this.props.toggleNav }>
             <span className={ this.props.open? 'icon icon-cancel' : 'icon icon-menu' }/>
           </button>
         </div>
-        <nav>
-          <ul onClick={ this.props.onMenuItemClick }>
+        <nav ref={ this._nav }>
+          <ul onClick={ this.props.closeNav }>
             {
               this.props.data.slice(1).map(item => {
                 return (
@@ -43,10 +50,21 @@ export class Header extends React.Component
             </div>
           </div>
           <small>
-            © { (new Date()).getFullYear() } Лариса Дедловская
+            © { (new Date()).getFullYear() } Лариса Дедловская
           </small>
         </nav>
       </header>
     )
+  }
+
+  componentDidMount() {
+    this._hammertime = new Hammer(this._nav.current)
+    this._hammertime.on('swipe', e => {
+      e.direction === Hammer.DIRECTION_RIGHT && this.props.closeNav()
+    })
+  }
+
+  componentWillUnmount() {
+    this._hammertime.off('swipe')
   }
 }

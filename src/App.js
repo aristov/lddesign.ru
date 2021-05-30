@@ -60,11 +60,11 @@ class App extends React.Component
     })
   }
 
-  onToggle = () => {
+  toggleNav = () => {
     this.setState(state => ({ open : !state.open }))
   }
 
-  onMenuItemClick = () => {
+  closeNav = () => {
     this.setState({ open : false })
   }
 
@@ -77,8 +77,8 @@ class App extends React.Component
             data?
               <>
                 <Header open={ open } data={ data }
-                        onToggle={ this.onToggle }
-                        onMenuItemClick={ this.onMenuItemClick }/>
+                        toggleNav={ this.toggleNav }
+                        closeNav={ this.closeNav }/>
                 <Switch>{ this._routes }</Switch>
               </> :
               <div className="Loading">Загрузка...</div>

@@ -15,7 +15,7 @@ export function AlbumGroup(props) {
 
 function AlbumItem(props) {
   const dir = props.album.dir
-  const url = [DATA_DIR, props.album.dir, props.album.items[0]].join('/')
+  const url = [DATA_DIR, props.album.dir, 'thumbs', props.album.items[0]].join('/')
   return (
     <Link to={ '/' + dir }
           className="AlbumItem"

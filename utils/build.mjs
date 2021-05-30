@@ -5,10 +5,18 @@ import sharp from 'sharp'
 const cwd = process.cwd()
 const INPUT_PATH = './tmp/media'
 const OUTPUT_PATH = './public/data'
+const THUMB_DIR_NAME = 'thumbs'
 const IMAGE_SIZE = 1200
+const THUMB_SIZE = 500
 const options = {
   width : IMAGE_SIZE,
   height : IMAGE_SIZE,
+  fit : 'inside',
+  withoutEnlargement : true,
+}
+const thumbOptions = {
+  width : THUMB_SIZE,
+  height : THUMB_SIZE,
   fit : 'inside',
   withoutEnlargement : true,
 }
@@ -33,14 +41,21 @@ async function build(itemName) {
     }
     const destName = normalize(name) + '.jpg'
     const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
-    await sharp(fs.readFileSync(srcPath)).resize(options).toFile(destPath)
+    const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMB_DIR_NAME, destName)
+    const file = fs.readFileSync(srcPath)
+    await Promise.all([
+      sharp(file).resize(options).toFile(destPath),
+      sharp(file).resize(thumbOptions).toFile(thumbPath),
+    ])
     console.log(destPath)
     return destName
   }
   const dirName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
   const destPath = path.join(cwd, OUTPUT_PATH, dirName)
+  const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMB_DIR_NAME)
   const items = []
   fs.existsSync(destPath) || fs.mkdirSync(destPath)
+  fs.existsSync(thumbPath) || fs.mkdirSync(thumbPath)
   console.log(destPath)
   for(const item of fs.readdirSync(srcPath)) {
     const result = await build(path.join(itemName, item))

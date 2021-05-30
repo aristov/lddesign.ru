@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import cn from 'classnames'
 import { Header } from './Header'
 import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
@@ -46,7 +47,7 @@ class App extends React.Component
           <main className="Main"><Contacts/></main>
         </Route>)
         routes.push(<Route key="/" path="/" exact>
-          <SlideShow album={ data[0] } className="homepage"/>
+          <SlideShow album={ data[0] }/>
         </Route>)
         routes.push(<Route key="/404" path="/">
           <main className="Main">
@@ -71,7 +72,7 @@ class App extends React.Component
     const { open, data } = this.state
     return (
       <BrowserRouter>
-        <div className={ open? 'App open' : 'App' }>
+        <div className={ cn('App', { open, homepage : window.location.pathname === '/' }) }>
           <div className="Inner">{
             data?
               <>

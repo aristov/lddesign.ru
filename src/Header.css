@@ -125,7 +125,6 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto 1fr;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0) 100%);
     /*padding: 0 20px;*/
     width: fit-content;
     height: 100%;

@@ -8,7 +8,7 @@ export class Header extends React.Component
     return (
       <header className="Header solid">
         <div className="Inner">
-          <h1><Link to="/">Лариса Дедловская</Link></h1>
+          <h1><a href="/">Лариса Дедловская</a></h1>
           <button className="MenuButton" onClick={ this.props.onToggle }>
             <span className={ this.props.open? 'icon icon-cancel' : 'icon icon-menu' }/>
           </button>

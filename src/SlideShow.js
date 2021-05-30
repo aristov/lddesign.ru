@@ -18,7 +18,7 @@ export class SlideShow extends React.Component
     const next = this.getIndex(current + 1)
     const items = [album.items[prev], album.items[current], album.items[next]]
     return (
-      <div className={ ['SlideShow', this.props.className].filter(Boolean).join(' ') }>
+      <div className="SlideShow">
         <h2>{ album.name }</h2>
         <div className="SlideList"
              onClick={ this.onClick }
@@ -53,8 +53,8 @@ export class SlideShow extends React.Component
     return i < 0? items.length + i : i % items.length
   }
 
-  onClick(e) {
-    this.switchSlide(e.pageX < window.innerWidth / 2? -1 : 1)
+  onClick() {
+    this.switchSlide(1)
   }
 
   onTransitionEnd() {

@@ -6,7 +6,7 @@ export class Header extends React.Component
 {
   render() {
     return (
-      <header className="Header solid">
+      <header className="Header">
         <div className="Inner">
           <h1><a href="/">Лариса Дедловская</a></h1>
           <button className="MenuButton" onClick={ this.props.onToggle }>

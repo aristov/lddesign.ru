@@ -1,10 +1,30 @@
 .Header
 {
-  position: absolute;
+  position: relative;
   width: 100%;
-  z-index: 1;
-  /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);*/
   color: #fff;
+  background: #333;
+  z-index: 1;
+}
+.Header > .Inner
+{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 10px;
+}
+.Header nav
+{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 80vw;
+  height: 100vh;
+  transition: background-color .3s, right .3s;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #333;
+  z-index: 2;
 }
 .Header h1
 {
@@ -66,7 +86,6 @@
   padding: 20px;
   font-size: 1.6rem;
   margin-top: 20px;
-  /*text-align: center;*/
 }
 .Header .Social a[href]
 {
@@ -90,34 +109,6 @@
   padding: 10px;
   opacity: .5;
 }
-.Header.solid
-{
-  position: relative;
-  background: #333;
-}
-/*@media (max-width: 499px)
-{*/
-  .Header > .Inner
-  {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    padding: 0 10px;
-  }
-  .Header nav
-  {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 80vw;
-    height: 100vh;
-    transition: background-color .3s, right .3s;
-    padding: 10px;
-    box-sizing: border-box;
-    background-color: #333;
-    z-index: 2;
-  }
-/*}*/
 @media (min-width: 900px)
 {
   .Header
@@ -125,15 +116,11 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto 1fr;
-    /*padding: 0 20px;*/
     width: fit-content;
     height: 100%;
   }
   .Header h1
   {
-    /*font-size: 2.4rem;*/
-    /*height: 100%;*/
-    /*width: 0;*/
     padding: 10px 0;
   }
   .Header button
@@ -142,11 +129,11 @@
   }
   .Header nav
   {
-    /*font-size: 1.2rem;*/
     width: 100%;
     height: auto;
     position: relative;
     left: 0;
+    background-color: transparent;
   }
   .Header ul
   {
@@ -159,7 +146,6 @@
   }
   .Header .Social
   {
-    /*display: none;*/
     font-size: 1.2rem;
     padding: 10px;
   }

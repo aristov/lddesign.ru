@@ -80,6 +80,7 @@ class App extends React.Component
                         toggleNav={ this.toggleNav }
                         closeNav={ this.closeNav }/>
                 <Switch>{ this._routes }</Switch>
+                <div className="Backdrop" onClick={ this.closeNav }/>
               </> :
               <div className="Loading">Загрузка...</div>
           }</div>

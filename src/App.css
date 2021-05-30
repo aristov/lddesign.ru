@@ -55,6 +55,15 @@
   display: grid;
   grid-template-rows: auto 1fr;
 }
+.App .Backdrop
+{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
 .App.homepage .SlideShow h2
 {
   display: none;
@@ -63,18 +72,26 @@
 {
   .App.open > .Inner
   {
-    left: -80%;
-  }
-}
-@media (min-width: 500px) and (max-width: 899px)
-{
-  .App.open > .Inner
-  {
     left: -400px;
   }
   .App .Header nav
   {
     width: 400px;
+  }
+  .App.open .Backdrop
+  {
+    display: block;
+  }
+}
+@media (max-width: 499px)
+{
+  .App.open > .Inner
+  {
+    left: -80%;
+  }
+  .App .Header nav
+  {
+    width: 80vw;
   }
 }
 @media (min-width: 900px)

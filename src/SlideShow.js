@@ -38,13 +38,15 @@ export class SlideShow extends React.Component
         <div className="SlideControl">
           <button className="SlidePrev"
                   onClick={ this.onPrevButtonClick }
-                  onKeyDown={ this.onButtonKeyDown }>
+                  onKeyDown={ this.onButtonKeyDown }
+                  title="Предыдущий слайд">
             <span className="icon icon-angle-left"/>
           </button>
           <div className="SlideCounter">{ current + 1 } / { album.items.length }</div>
           <button className="SlideNext"
                   onClick={ this.onNextButtonClick }
-                  onKeyDown={ this.onButtonKeyDown }>
+                  onKeyDown={ this.onButtonKeyDown }
+                  title="Следующий слайд">
             <span className="icon icon-angle-right"/>
           </button>
         </div>
@@ -141,7 +143,7 @@ export class SlideShow extends React.Component
 
 function SlideItem(props) {
   return (
-    <div className="SlideItem" style={ {
+    <div role="img" className="SlideItem" style={ {
       backgroundImage : `url(/data/${ props.url })`,
       left : (props.index - 1) * 100 + '%',
     } }/>

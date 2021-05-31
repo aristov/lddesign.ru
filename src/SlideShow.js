@@ -9,6 +9,7 @@ export class SlideShow extends React.Component
   constructor(props) {
     super(props)
     this.state = { current : 0 }
+    this._ref = React.createRef()
     this._list = React.createRef()
   }
 
@@ -23,14 +24,15 @@ export class SlideShow extends React.Component
       document.title = album.name + ' | Лариса Дедловская'
     }
     return (
-      <div className="SlideShow">
+      <div className="SlideShow" ref={ this._ref }>
         { group?
           <h2>
             <Link to={ '/' + group.dir } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
             { ' → ' + album.name }
           </h2> :
           null }
-        <div className="SlideList"
+        <div className="SlideList appear"
+             aria-busy="true"
              ref={ this._list }
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
@@ -69,6 +71,7 @@ export class SlideShow extends React.Component
       }
     })
     document.addEventListener('keydown', this.onKeyDown)
+    setTimeout(() => this._list.current.removeAttribute('aria-busy'))
   }
 
   componentWillUnmount() {

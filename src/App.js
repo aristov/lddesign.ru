@@ -72,7 +72,11 @@ class App extends React.Component
     const { open, data } = this.state
     return (
       <BrowserRouter>
-        <div className={ cn('App', { open, homepage : window.location.pathname === '/' }) }>
+        <div className={ cn('App', {
+          open,
+          homepage : window.location.pathname === '/',
+        }) }
+             aria-busy={ String(!data) }>
           <div className="Inner">{
             data?
               <>

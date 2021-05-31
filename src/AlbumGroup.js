@@ -4,14 +4,27 @@ import './AlbumGroup.css'
 
 const DATA_DIR = '/data'
 
-export function AlbumGroup(props) {
-  document.title = props.group.name + ' | Лариса Дедловская'
-  return (
-    <div className="AlbumGroup">
-      <div className="AlbumItem"><h2>{ props.group.name }</h2></div>
-      { props.group.items.map(item => <AlbumItem key={ item.dir } album={ item }/>) }
-    </div>
-  )
+export class AlbumGroup extends React.Component
+{
+  constructor(props) {
+    super(props)
+    this._ref = React.createRef()
+  }
+
+  render() {
+    const { group } = this.props
+    document.title = group.name + ' | Лариса Дедловская'
+    return (
+      <div className="AlbumGroup appear" aria-busy="true" ref={ this._ref }>
+        <div className="AlbumItem"><h2>{ group.name }</h2></div>
+        { group.items.map(item => <AlbumItem key={ item.dir } album={ item }/>) }
+      </div>
+    )
+  }
+
+  componentDidMount() {
+    setTimeout(() => this._ref.current.removeAttribute('aria-busy'))
+  }
 }
 
 class AlbumItem extends React.Component

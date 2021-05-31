@@ -58,9 +58,10 @@
   color: inherit;
   font-size: 3rem;
   text-shadow: inherit;
-  outline: none;
+  /*outline: none;*/
 }
-.SlideShow button:hover
+.SlideShow button:hover,
+.SlideShow button:focus
 {
   opacity: 1;
 }

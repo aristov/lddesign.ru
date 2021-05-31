@@ -46,19 +46,8 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 1100px)
+@media (min-width: 900px)
 {
-  .AlbumGroup
-  {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media (min-width: 1500px)
-{
-  .AlbumGroup
-  {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
   .AlbumGroup .AlbumInfo
   {
     top: 0;
@@ -76,5 +65,19 @@
   .AlbumGroup .AlbumItem:hover .AlbumInfo
   {
     opacity: 1;
+  }
+}
+@media (min-width: 1100px)
+{
+  .AlbumGroup
+  {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1500px)
+{
+  .AlbumGroup
+  {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }

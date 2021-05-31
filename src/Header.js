@@ -26,17 +26,12 @@ export class Header extends React.Component
               this.props.data.slice(1).map(item => {
                 return (
                   <li key={ item.dir }>
-                    <Link to={ '/' + item.dir } onKeyDown={ e => {
-                      if(e.code === 'Space') {
-                        e.stopPropagation()
-                        e.target.click()
-                      }
-                    } }>{ item.name }</Link>
+                    <Link to={ '/' + item.dir } onKeyDown={ this.onKeyDown }>{ item.name }</Link>
                   </li>
                 )
               })
             }
-            <li><Link to="/Контакты">Контакты</Link></li>
+            <li><Link to="/Контакты" onKeyDown={ this.onKeyDown }>Контакты</Link></li>
           </ul>
           <div className="Social">
             <div>
@@ -71,5 +66,18 @@ export class Header extends React.Component
 
   componentWillUnmount() {
     this._hammertime.off('swipe')
+  }
+
+  onKeyDown = e => {
+    if(e.code === 'Space') {
+      e.stopPropagation()
+      e.target.click()
+    }
+    if(e.code === 'ArrowUp') {
+      e.target.parentElement.previousElementSibling?.querySelector('a').focus()
+    }
+    if(e.code === 'ArrowDown') {
+      e.target.parentElement.nextElementSibling?.querySelector('a').focus()
+    }
   }
 }

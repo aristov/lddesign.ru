@@ -9,9 +9,6 @@ export class SlideShow extends React.Component
     super(props)
     this.state = { current : 0 }
     this._list = React.createRef()
-    this.onClick = this.onClick.bind(this)
-    this.onKeyDown = this.onKeyDown.bind(this)
-    this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
   render() {
@@ -34,14 +31,14 @@ export class SlideShow extends React.Component
         }</div>
         <div className="SlideControl">
           <button className="SlidePrev"
-                  onClick={ () => this.switchSlide(-1, true) }
-                  onKeyDown={ e => e.code === 'Space' && e.stopPropagation() }>
+                  onClick={ this.onPrevButtonClick }
+                  onKeyDown={ this.onButtonKeyDown }>
             <span className="icon icon-angle-left"/>
           </button>
           <div className="SlideCounter">{ current + 1 } / { album.items.length }</div>
           <button className="SlideNext"
-                  onClick={ () => this.switchSlide(1, true) }
-                  onKeyDown={ e => e.code === 'Space' && e.stopPropagation() }>
+                  onClick={ this.onNextButtonClick }
+                  onKeyDown={ this.onButtonKeyDown }>
             <span className="icon icon-angle-right"/>
           </button>
         </div>
@@ -94,11 +91,11 @@ export class SlideShow extends React.Component
     return i < 0? items.length + i : i % items.length
   }
 
-  onClick() {
+  onClick = () => {
     this.switchSlide(1, true)
   }
 
-  onKeyDown(e) {
+  onKeyDown = e => {
     switch(e.code) {
       case 'ArrowLeft':
         this.switchSlide(-1, true)
@@ -112,8 +109,20 @@ export class SlideShow extends React.Component
     }
   }
 
-  onTransitionEnd() {
+  onTransitionEnd = () => {
     this._transition = false
+  }
+
+  onPrevButtonClick = () => {
+    this.switchSlide(-1, true)
+  }
+
+  onNextButtonClick = () => {
+    this.switchSlide(1, true)
+  }
+
+  onButtonKeyDown = e => {
+    e.code === 'Space' && e.stopPropagation()
   }
 }
 

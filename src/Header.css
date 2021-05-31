@@ -80,9 +80,14 @@
   opacity: .8;
 }
 .Header li a[href]:hover,
-.Header li a[href]:focus
+.Header li a[href]:focus,
+.Header li a[href].current
 {
   opacity: 1;
+}
+.Header li a[href].current
+{
+  cursor: default;
 }
 .Header .Social
 {

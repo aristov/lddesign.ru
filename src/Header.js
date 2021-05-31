@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import './Header.css'
 
 const { Hammer } = window
@@ -26,12 +26,23 @@ export class Header extends React.Component
               this.props.data.slice(1).map(item => {
                 return (
                   <li key={ item.dir }>
-                    <Link to={ '/' + item.dir } onKeyDown={ this.onKeyDown }>{ item.name }</Link>
+                    <NavLink to={ '/' + item.dir }
+                             onKeyDown={ this.onKeyDown }
+                             activeClassName="current"
+                             exact
+                    >{ item.name }</NavLink>
                   </li>
                 )
               })
             }
-            <li><Link to="/Контакты" onKeyDown={ this.onKeyDown }>Контакты</Link></li>
+            <li>
+              <NavLink
+                to="/Контакты"
+                onKeyDown={ this.onKeyDown }
+                activeClassName="current"
+                exact
+              >Контакты</NavLink>
+            </li>
           </ul>
           <div className="Social">
             <div>

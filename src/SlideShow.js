@@ -10,6 +10,7 @@ export class SlideShow extends React.Component
     this.state = { current : 0 }
     this._list = React.createRef()
     this.onClick = this.onClick.bind(this)
+    this.onKeyDown = this.onKeyDown.bind(this)
     this.onTransitionEnd = this.onTransitionEnd.bind(this)
   }
 
@@ -32,11 +33,15 @@ export class SlideShow extends React.Component
           ))
         }</div>
         <div className="SlideControl">
-          <button className="SlidePrev" onClick={ () => this.switchSlide(-1, true) }>
+          <button className="SlidePrev"
+                  onClick={ () => this.switchSlide(-1, true) }
+                  onKeyDown={ e => e.code === 'Space' && e.stopPropagation() }>
             <span className="icon icon-angle-left"/>
           </button>
           <div className="SlideCounter">{ current + 1 } / { album.items.length }</div>
-          <button className="SlideNext" onClick={ () => this.switchSlide(1, true) }>
+          <button className="SlideNext"
+                  onClick={ () => this.switchSlide(1, true) }
+                  onKeyDown={ e => e.code === 'Space' && e.stopPropagation() }>
             <span className="icon icon-angle-right"/>
           </button>
         </div>
@@ -55,12 +60,14 @@ export class SlideShow extends React.Component
         this.switchSlide(-1, true)
       }
     })
+    document.addEventListener('keydown', this.onKeyDown)
   }
 
   componentWillUnmount() {
     this._timer && clearTimeout(this._timer)
     this._timer = null
     this._hammertime.off('swipe')
+    document.removeEventListener('keydown', this.onKeyDown)
   }
 
   tick() {
@@ -89,6 +96,20 @@ export class SlideShow extends React.Component
 
   onClick() {
     this.switchSlide(1, true)
+  }
+
+  onKeyDown(e) {
+    switch(e.code) {
+      case 'ArrowLeft':
+        this.switchSlide(-1, true)
+        break
+      case 'ArrowRight':
+      case 'Space':
+        this.switchSlide(1, true)
+        break
+      default:
+        void null
+    }
   }
 
   onTransitionEnd() {

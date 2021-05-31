@@ -27,7 +27,7 @@
   display: inline-block;
   background: center center / cover no-repeat;
   width: 100%;
-  transition: left .7s;
+  transition: left .5s;
   position: absolute;
 }
 .SlideShow .SlideControl

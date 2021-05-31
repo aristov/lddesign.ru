@@ -9,6 +9,7 @@
   padding-top: 55%;
   background: center center / cover no-repeat;
   position: relative;
+  outline: none;
 }
 .AlbumGroup .AlbumItem h2
 {
@@ -62,7 +63,8 @@
     text-align: center;
     padding: 20px;
   }
-  .AlbumGroup .AlbumItem:hover .AlbumInfo
+  .AlbumGroup .AlbumItem:hover .AlbumInfo,
+  .AlbumGroup .AlbumItem:focus .AlbumInfo
   {
     opacity: 1;
   }

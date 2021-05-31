@@ -19,7 +19,8 @@ function AlbumItem(props) {
   return (
     <Link to={ '/' + dir }
           className="AlbumItem"
-          style={ { backgroundImage : `url(${ url })` } }>
+          style={ { backgroundImage : `url(${ url })` } }
+          onKeyDown={ e => e.code === 'Space' && e.target.click() }>
       <div className="AlbumInfo">{ props.album.name }</div>
     </Link>
   )

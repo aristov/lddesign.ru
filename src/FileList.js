@@ -5,6 +5,7 @@ import './FileList.css'
 const DATA_DIR = '/data'
 
 export function FileList(props) {
+  document.title = props.group.name + ' | Лариса Дедловская'
   return (
     <div className="FileList">
       <h2>{ props.group.name }</h2>

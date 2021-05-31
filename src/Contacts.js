@@ -2,6 +2,7 @@ import React from 'react'
 import './Contacts.css'
 
 export function Contacts() {
+  document.title = 'Контакты | Лариса Дедловская'
   return (
     <div className="Contacts">
       <h2>Контакты</h2>

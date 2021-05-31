@@ -19,6 +19,9 @@ export class SlideShow extends React.Component
     const prev = this.getIndex(current - 1)
     const next = this.getIndex(current + 1)
     const items = [album.items[prev], album.items[current], album.items[next]]
+    if(group) {
+      document.title = album.name + ' | Лариса Дедловская'
+    }
     return (
       <div className="SlideShow">
         { group?

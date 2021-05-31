@@ -5,6 +5,7 @@ import './AlbumGroup.css'
 const DATA_DIR = '/data'
 
 export function AlbumGroup(props) {
+  document.title = props.group.name + ' | Лариса Дедловская'
   return (
     <div className="AlbumGroup">
       <div className="AlbumItem"><h2>{ props.group.name }</h2></div>

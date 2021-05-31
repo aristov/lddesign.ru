@@ -36,10 +36,12 @@ class AlbumItem extends React.Component
         break
       case 'ArrowLeft':
       case 'ArrowUp':
+        e.preventDefault()
         e.target.previousElementSibling?.focus()
         break
       case 'ArrowRight':
       case 'ArrowDown':
+        e.preventDefault()
         e.target.nextElementSibling?.focus()
         break
       default:

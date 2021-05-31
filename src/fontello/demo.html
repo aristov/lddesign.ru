@@ -16,7 +16,7 @@
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: '';
+  content: "";
   line-height: 0;
 }
 .clearfix:after {
@@ -56,7 +56,7 @@ input::-moz-focus-inner {
 }
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333;
@@ -77,13 +77,13 @@ a:hover {
 .row:before,
 .row:after {
   display: table;
-  content: '';
+  content: "";
   line-height: 0;
 }
 .row:after {
   clear: both;
 }
-[class*='span'] {
+[class*="span"] {
   float: left;
   min-height: 1px;
   margin-left: 20px;
@@ -130,8 +130,8 @@ a:hover {
 .span1 {
   width: 60px;
 }
-[class*='span'].pull-right,
-.row-fluid [class*='span'].pull-right {
+[class*="span"].pull-right,
+.row-fluid [class*="span"].pull-right {
   float: right;
 }
 .container {
@@ -142,7 +142,7 @@ a:hover {
 .container:before,
 .container:after {
   display: table;
-  content: '';
+  content: "";
   line-height: 0;
 }
 .container:after {
@@ -229,11 +229,11 @@ body {
 }
 @font-face {
       font-family: 'lddesign';
-      src: url('font/lddesign.eot?14025822');
-      src: url('font/lddesign.eot?14025822#iefix') format('embedded-opentype'),
-           url('font/lddesign.woff?14025822') format('woff'),
-           url('font/lddesign.ttf?14025822') format('truetype'),
-           url('font/lddesign.svg?14025822#lddesign') format('svg');
+      src: url('./font/lddesign.eot?63064912');
+      src: url('./font/lddesign.eot?63064912#iefix') format('embedded-opentype'),
+           url('./font/lddesign.woff?63064912') format('woff'),
+           url('./font/lddesign.ttf?63064912') format('truetype'),
+           url('./font/lddesign.svg?63064912#lddesign') format('svg');
       font-weight: normal;
       font-style: normal;
     }
@@ -241,7 +241,7 @@ body {
      
     .demo-icon
     {
-      font-family: 'lddesign';
+      font-family: "lddesign";
       font-style: normal;
       font-weight: normal;
       speak: never;
@@ -275,8 +275,7 @@ body {
       /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
     }
      </style>
-    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]>
-    <link rel="stylesheet" href="css" + font.fontname + "-ie7.css"><![endif]-->
+    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
     <script>
       function toggleCodes(on) {
         var obj = document.getElementById('icons');
@@ -299,40 +298,22 @@ body {
     </div>
     <div class="container" id="icons">
       <div class="row">
-        <div class="the-icons span3" title="Code: 0xe800"><i class="demo-icon icon-down-open">&#xe800;</i> <span class="i-name">icon-down-open</span><span class="i-code">0xe800</span></div>
-        <div class="the-icons span3" title="Code: 0xe801"><i class="demo-icon icon-left-open">&#xe801;</i> <span class="i-name">icon-left-open</span><span class="i-code">0xe801</span></div>
-        <div class="the-icons span3" title="Code: 0xe802"><i class="demo-icon icon-right-open">&#xe802;</i> <span class="i-name">icon-right-open</span><span class="i-code">0xe802</span></div>
-        <div class="the-icons span3" title="Code: 0xe803"><i class="demo-icon icon-up-open">&#xe803;</i> <span class="i-name">icon-up-open</span><span class="i-code">0xe803</span></div>
-      </div>
-      <div class="row">
         <div class="the-icons span3" title="Code: 0xe804"><i class="demo-icon icon-phone">&#xe804;</i> <span class="i-name">icon-phone</span><span class="i-code">0xe804</span></div>
         <div class="the-icons span3" title="Code: 0xe805"><i class="demo-icon icon-mail">&#xe805;</i> <span class="i-name">icon-mail</span><span class="i-code">0xe805</span></div>
         <div class="the-icons span3" title="Code: 0xe806"><i class="demo-icon icon-cancel">&#xe806;</i> <span class="i-name">icon-cancel</span><span class="i-code">0xe806</span></div>
-        <div class="the-icons span3" title="Code: 0xe807"><i class="demo-icon icon-cancel-circled">&#xe807;</i> <span class="i-name">icon-cancel-circled</span><span class="i-code">0xe807</span></div>
-      </div>
-      <div class="row">
-        <div class="the-icons span3" title="Code: 0xe808"><i class="demo-icon icon-cancel-circled2">&#xe808;</i> <span class="i-name">icon-cancel-circled2</span><span class="i-code">0xe808</span></div>
         <div class="the-icons span3" title="Code: 0xe809"><i class="demo-icon icon-livejournal">&#xe809;</i> <span class="i-name">icon-livejournal</span><span class="i-code">0xe809</span></div>
-        <div class="the-icons span3" title="Code: 0xf098"><i class="demo-icon icon-phone-squared">&#xf098;</i> <span class="i-name">icon-phone-squared</span><span class="i-code">0xf098</span></div>
+      </div>
+      <div class="row">
+        <div class="the-icons span3" title="Code: 0xe80a"><i class="demo-icon icon-left-big">&#xe80a;</i> <span class="i-name">icon-left-big</span><span class="i-code">0xe80a</span></div>
         <div class="the-icons span3" title="Code: 0xf09a"><i class="demo-icon icon-facebook">&#xf09a;</i> <span class="i-name">icon-facebook</span><span class="i-code">0xf09a</span></div>
-      </div>
-      <div class="row">
         <div class="the-icons span3" title="Code: 0xf0c9"><i class="demo-icon icon-menu">&#xf0c9;</i> <span class="i-name">icon-menu</span><span class="i-code">0xf0c9</span></div>
-        <div class="the-icons span3" title="Code: 0xf0e0"><i class="demo-icon icon-mail-alt">&#xf0e0;</i> <span class="i-name">icon-mail-alt</span><span class="i-code">0xf0e0</span></div>
         <div class="the-icons span3" title="Code: 0xf104"><i class="demo-icon icon-angle-left">&#xf104;</i> <span class="i-name">icon-angle-left</span><span class="i-code">0xf104</span></div>
-        <div class="the-icons span3" title="Code: 0xf105"><i class="demo-icon icon-angle-right">&#xf105;</i> <span class="i-name">icon-angle-right</span><span class="i-code">0xf105</span></div>
       </div>
       <div class="row">
-        <div class="the-icons span3" title="Code: 0xf106"><i class="demo-icon icon-angle-up">&#xf106;</i> <span class="i-name">icon-angle-up</span><span class="i-code">0xf106</span></div>
-        <div class="the-icons span3" title="Code: 0xf107"><i class="demo-icon icon-angle-down">&#xf107;</i> <span class="i-name">icon-angle-down</span><span class="i-code">0xf107</span></div>
+        <div class="the-icons span3" title="Code: 0xf105"><i class="demo-icon icon-angle-right">&#xf105;</i> <span class="i-name">icon-angle-right</span><span class="i-code">0xf105</span></div>
         <div class="the-icons span3" title="Code: 0xf16d"><i class="demo-icon icon-instagram">&#xf16d;</i> <span class="i-name">icon-instagram</span><span class="i-code">0xf16d</span></div>
         <div class="the-icons span3" title="Code: 0xf189"><i class="demo-icon icon-vkontakte">&#xf189;</i> <span class="i-name">icon-vkontakte</span><span class="i-code">0xf189</span></div>
-      </div>
-      <div class="row">
-        <div class="the-icons span3" title="Code: 0xf199"><i class="demo-icon icon-mail-squared">&#xf199;</i> <span class="i-name">icon-mail-squared</span><span class="i-code">0xf199</span></div>
         <div class="the-icons span3" title="Code: 0xf1c1"><i class="demo-icon icon-file-pdf">&#xf1c1;</i> <span class="i-name">icon-file-pdf</span><span class="i-code">0xf1c1</span></div>
-        <div class="the-icons span3" title="Code: 0xf230"><i class="demo-icon icon-facebook-official">&#xf230;</i> <span class="i-name">icon-facebook-official</span><span class="i-code">0xf230</span></div>
-        <div class="the-icons span3" title="Code: 0xf308"><i class="demo-icon icon-facebook-squared">&#xf308;</i> <span class="i-name">icon-facebook-squared</span><span class="i-code">0xf308</span></div>
       </div>
     </div>
     <div class="container footer">Generated by <a href="https://fontello.com">fontello.com</a></div>

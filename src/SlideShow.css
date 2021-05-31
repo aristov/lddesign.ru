@@ -65,6 +65,22 @@
 {
   opacity: 1;
 }
+.SlideShow .BackLink
+{
+  position: absolute;
+  display: block;
+  font-size: 1.4rem;
+  z-index: 2;
+  color: #fff;
+  padding: 4px 20px;
+  opacity: .8;
+}
+.SlideShow .BackLink:hover,
+.SlideShow .BackLink:focus
+{
+  opacity: 1;
+  color: #fff;
+}
 .SlideShow h2
 {
   position: absolute;
@@ -76,8 +92,19 @@
   box-sizing: border-box;
   background: linear-gradient(to top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 100%);
 }
+.SlideShow h2 a[href],
+.SlideShow h2 a[href]:hover,
+.SlideShow h2 a[href]:focus
+{
+  color: #fff;
+  text-decoration: none;
+}
 @media (min-width: 500px)
 {
+  .SlideShow .BackLink
+  {
+    font-size: 1.6rem;
+  }
   .SlideShow h2
   {
     font-size: 1rem;
@@ -87,6 +114,6 @@
 {
   .SlideShow h2
   {
-    text-align: right;
+    padding: 15px 20px;
   }
 }

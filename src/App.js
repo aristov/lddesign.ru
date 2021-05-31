@@ -30,7 +30,7 @@ class App extends React.Component
               continue
             }
             routes.push(<Route key={ item.dir } path={ '/' + item.dir }>
-              <SlideShow album={ item }/>
+              <SlideShow group={ group } album={ item }/>
             </Route>)
           }
           if(group.items[0].file) {

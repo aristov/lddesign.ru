@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './SlideShow.css'
 
 const { Hammer } = window
@@ -12,21 +13,26 @@ export class SlideShow extends React.Component
   }
 
   render() {
+    const group = this.props.group
     const album = this.props.album
-    const dir = [this.props.dir, album.dir].filter(Boolean).join('/')
     const current = this.state.current
     const prev = this.getIndex(current - 1)
     const next = this.getIndex(current + 1)
     const items = [album.items[prev], album.items[current], album.items[next]]
     return (
       <div className="SlideShow">
-        <h2>{ album.name }</h2>
+        { group?
+          <h2>
+            <Link to={ '/' + group.dir } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
+            { ' → ' + album.name }
+          </h2> :
+          null }
         <div className="SlideList"
              ref={ this._list }
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
           items.map((item, i) => (
-            <SlideItem key={ item } url={ dir + '/' + item } index={ i }/>
+            <SlideItem key={ item } url={ album.dir + '/' + item } index={ i }/>
           ))
         }</div>
         <div className="SlideControl">
@@ -123,6 +129,13 @@ export class SlideShow extends React.Component
 
   onButtonKeyDown = e => {
     e.code === 'Space' && e.stopPropagation()
+  }
+
+  onBackKeyDown = e => {
+    if(e.code === 'Space') {
+      e.stopPropagation()
+      e.target.click()
+    }
   }
 }
 

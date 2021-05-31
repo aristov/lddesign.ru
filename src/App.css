@@ -64,10 +64,6 @@
   right: 0;
   display: none;
 }
-.App.homepage .SlideShow h2
-{
-  display: none;
-}
 @media (max-width: 899px)
 {
   .App.open > .Inner

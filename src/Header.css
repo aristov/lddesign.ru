@@ -71,7 +71,6 @@
 .Header a[href]
 {
   color: inherit;
-  text-decoration: none;
 }
 .Header li a[href]
 {

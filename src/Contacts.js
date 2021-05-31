@@ -46,6 +46,11 @@ export function Contacts() {
         <span className="icon icon-livejournal"/>
         mona
       </a>
+      <hr/>
+      <div className="Author">
+        { 'Разработчик сайта: ' }
+        <a href="mailto:vv.aristov@gmail.com" target="_blank" rel="noreferrer">Вячеслав Аристов</a>
+      </div>
     </div>
   )
 }

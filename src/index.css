@@ -18,6 +18,7 @@ a[href]
 {
   /*outline: none;*/
   color: #00a;
+  text-decoration: none;
 }
 a[href]:hover,
 a[href]:focus

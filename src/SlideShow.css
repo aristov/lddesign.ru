@@ -97,7 +97,6 @@
 .SlideShow h2 a[href]:focus
 {
   color: #fff;
-  text-decoration: none;
 }
 @media (min-width: 500px)
 {

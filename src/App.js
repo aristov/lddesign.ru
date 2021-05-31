@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import cn from 'classnames'
+import config from './config'
 import { Header } from './Header'
 import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
@@ -16,7 +17,7 @@ class App extends React.Component
   }
 
   componentDidMount() {
-    fetch('/data/data.json')
+    fetch(config.DATA_DIR + '/data.json')
     .then(res => res.json())
     .then(data => {
       const routes = []
@@ -29,17 +30,17 @@ class App extends React.Component
             if(item.file) {
               continue
             }
-            routes.push(<Route key={ item.dir } path={ '/' + item.dir }>
+            routes.push(<Route key={ item.dir } path={ '/' + item.path }>
               <SlideShow group={ group } album={ item }/>
             </Route>)
           }
           if(group.items[0].file) {
-            routes.push(<Route key={ group.dir } path={ '/' + group.dir }>
+            routes.push(<Route key={ group.dir } path={ '/' + group.path }>
               <main className="Main"><FileList group={ group }/></main>
             </Route>)
             continue
           }
-          routes.push(<Route key={ group.dir } path={ '/' + group.dir }>
+          routes.push(<Route key={ group.dir } path={ '/' + group.path }>
             <AlbumGroup group={ group }/>
           </Route>)
         }

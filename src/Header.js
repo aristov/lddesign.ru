@@ -26,7 +26,7 @@ export class Header extends React.Component
               this.props.data.slice(1).map(item => {
                 return (
                   <li key={ item.dir }>
-                    <NavLink to={ '/' + item.dir }
+                    <NavLink to={ '/' + item.path }
                              onKeyDown={ this.onKeyDown }
                              activeClassName="current"
                              exact

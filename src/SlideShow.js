@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from './config'
 import './SlideShow.css'
 
 const { Hammer } = window
@@ -27,7 +28,7 @@ export class SlideShow extends React.Component
       <div className="SlideShow" ref={ this._ref }>
         { group?
           <h2>
-            <Link to={ '/' + group.dir } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
+            <Link to={ '/' + group.path } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
             { ' → ' + album.name }
           </h2> :
           null }
@@ -150,7 +151,7 @@ export class SlideShow extends React.Component
 function SlideItem(props) {
   return (
     <div role="img" className="SlideItem" style={ {
-      backgroundImage : `url(/data/${ props.url })`,
+      backgroundImage : `url(${ config.DATA_DIR }/${ props.url })`,
       left : (props.index - 1) * 100 + '%',
     } }/>
   )

@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from './config'
 import './AlbumGroup.css'
-
-const DATA_DIR = '/data'
 
 export class AlbumGroup extends React.Component
 {
@@ -31,10 +30,11 @@ class AlbumItem extends React.Component
 {
   render() {
     const props = this.props
-    const dir = props.album.dir
-    const url = [DATA_DIR, props.album.dir, 'thumbs', props.album.items[0]].join('/')
+    const url = [
+      config.DATA_DIR, props.album.dir, config.THUMBS_DIR, props.album.items[0],
+    ].join('/')
     return (
-      <Link to={ '/' + dir }
+      <Link to={ '/' + props.album.path }
             className="AlbumItem"
             style={ { backgroundImage : `url(${ url })` } }
             onKeyDown={ this.onKeyDown }>

@@ -1,11 +1,13 @@
 import path from 'path'
 import fs from 'fs'
 import sharp from 'sharp'
+import { slugify } from 'transliteration'
+import config from '../src/config.js'
 
 const cwd = process.cwd()
 const INPUT_PATH = './tmp/media'
-const OUTPUT_PATH = './public/data'
-const THUMB_DIR_NAME = 'thumbs'
+const OUTPUT_PATH = './public' + config.DATA_DIR
+const THUMBS_DIR = config.THUMBS_DIR
 const IMAGE_SIZE = 1200
 const THUMB_SIZE = 500
 const options = {
@@ -29,9 +31,9 @@ async function data(itemName) {
     if(!/\.(png|jpg|tif|pdf)$/i.test(ext)) {
       return null
     }
-    const dirName = dir.split('/').map(chunk => normalize(chunk)).join('/')
+    const dirName = dir.split('/').map(chunk => slugify(normalize(chunk))).join('/')
     if(ext === '.pdf') {
-      const destName = normalize(name) + '.pdf'
+      const destName = slugify(name.trim()) + '.pdf'
       const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
       fs.copyFileSync(srcPath, destPath)
       return {
@@ -39,9 +41,9 @@ async function data(itemName) {
         file : [dirName.slice(1), destName].join('/'),
       }
     }
-    const destName = normalize(name) + '.jpg'
+    const destName = slugify(name.trim()) + '.jpg'
     const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
-    const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMB_DIR_NAME, destName)
+    const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMBS_DIR, destName)
     const file = fs.readFileSync(srcPath)
     await Promise.all([
       sharp(file).resize(options).toFile(destPath),
@@ -50,9 +52,10 @@ async function data(itemName) {
     console.log(destPath)
     return destName
   }
-  const dirName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
+  const pathName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
+  const dirName = itemName.split('/').map(chunk => slugify(normalize(chunk))).join('/')
   const destPath = path.join(cwd, OUTPUT_PATH, dirName)
-  const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMB_DIR_NAME)
+  const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMBS_DIR)
   const items = []
   fs.existsSync(destPath) || fs.mkdirSync(destPath)
   fs.existsSync(thumbPath) || fs.mkdirSync(thumbPath)
@@ -63,6 +66,7 @@ async function data(itemName) {
   }
   return {
     dir : dirName.slice(1),
+    path : pathName.slice(1),
     name : format(base),
     items,
   }

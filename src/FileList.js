@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from './config'
 import './FileList.css'
-
-const DATA_DIR = '/data'
 
 export function FileList(props) {
   document.title = props.group.name + ' | Лариса Дедловская'
@@ -16,7 +15,7 @@ export function FileList(props) {
 }
 
 function FileLink(props) {
-  const to = [DATA_DIR, props.item.file].join('/')
+  const to = [config.DATA_DIR, props.item.file].join('/')
   return (
     <Link className="FileLink" to={ to } target="_blank" rel="noreferrer">
       <span className="icon icon-file-pdf"/>

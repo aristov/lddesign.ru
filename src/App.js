@@ -7,6 +7,7 @@ import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
 import { FileList } from './FileList'
 import { Contacts } from './Contacts'
+import { Blog } from './Blog'
 import './App.css'
 
 class App extends React.Component
@@ -44,6 +45,7 @@ class App extends React.Component
             <AlbumGroup group={ group }/>
           </Route>)
         }
+        routes.push(<Route key="Блог" path="/Блог"><Blog/></Route>)
         routes.push(<Route key="Контакты" path="/Контакты">
           <main className="Main"><Contacts/></main>
         </Route>)

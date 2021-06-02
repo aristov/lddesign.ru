@@ -1,0 +1,40 @@
+.Blog
+{
+  background-color: #eee;
+  height: 100%;
+  overflow: auto;
+}
+.Blog article
+{
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+}
+.Blog article:first-child
+{
+  margin-top: 0;
+}
+.Blog .ArticleHead
+{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 10px;
+  padding: 10px 0;
+  align-items: center;
+}
+.Blog h3
+{
+  margin: 0;
+}
+.Blog time
+{
+  font-size: .8rem;
+}
+.Blog p
+{
+  font-size: .9rem;
+}
+.Blog img
+{
+  width: 100%;
+}

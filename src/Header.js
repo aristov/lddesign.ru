@@ -37,6 +37,14 @@ export class Header extends React.Component
             }
             <li>
               <NavLink
+                to="/Блог"
+                onKeyDown={ this.onKeyDown }
+                activeClassName="current"
+                exact
+              >Блог</NavLink>
+            </li>
+            <li>
+              <NavLink
                 to="/Контакты"
                 onKeyDown={ this.onKeyDown }
                 activeClassName="current"

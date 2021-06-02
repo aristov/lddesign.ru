@@ -9,6 +9,13 @@
   padding: 20px;
   margin-bottom: 20px;
 }
+.Blog h3,
+.Blog p
+{
+  max-width: 900px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .Blog h3
 {
   margin-top: 10px;
@@ -23,7 +30,13 @@
 }
 .Blog img
 {
-  width: 100%;
+  max-width: 100%;
+  vertical-align: top;
+  margin-bottom: 5px;
+}
+.Blog img:not(:last-child)
+{
+  margin-right: 5px;
 }
 @media (min-width: 900px)
 {
@@ -31,8 +44,8 @@
   {
     padding: 20px;
   }
-  .Blog article
+  /*.Blog article
   {
     max-width: 900px;
-  }
+  }*/
 }

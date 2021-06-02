@@ -27,20 +27,27 @@ export class Blog extends React.Component
       <div className="Blog">
         {
           this.state.data.items.map(item => {
+            if(!item.text && !item.attachments) {
+              return null
+            }
+            if(item.copy_history) {
+              return null
+            }
             const [title, ...text] = item.text.split('\n\n')
             return (
               <article key={ item.id }>
-                <div className="ArticleHead">
-                  <h3>{ title }</h3>
-                  <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
-                </div>
+                <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
+                <h3>{ title }</h3>
                 { text.length? text.map(p => <p key={ p }>{ p }</p>) : null }
                 { item.attachments?.map(attachment => {
-                  return (
-                    <img key={ attachment.id }
-                         src={ attachment.photo.sizes.find(size => size.type === 'r').url }
-                         alt=""/>
-                  )
+                  if(attachment.type === 'photo') {
+                    return (
+                      <img key={ attachment.photo.id }
+                           src={ attachment.photo.sizes.find(size => size.type === 'r')?.url }
+                           alt=""/>
+                    )
+                  }
+                  return null
                 }) }
               </article>
             )

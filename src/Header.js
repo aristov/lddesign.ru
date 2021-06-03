@@ -21,11 +21,11 @@ export class Header extends React.Component
           </button>
         </div>
         <nav ref={ this._nav }>
-          <ul onClick={ this.props.closeNav }>
+          <ul role="menu" onClick={ this.props.closeNav }>
             {
               this.props.data.slice(1).map(item => {
                 return (
-                  <li key={ item.dir }>
+                  <li role="menuitem" key={ item.dir }>
                     <NavLink to={ '/' + item.path }
                              onKeyDown={ this.onKeyDown }
                              activeClassName="current"
@@ -35,7 +35,7 @@ export class Header extends React.Component
                 )
               })
             }
-            <li>
+            <li role="menuitem">
               <NavLink
                 to="/Блог"
                 onKeyDown={ this.onKeyDown }
@@ -43,7 +43,7 @@ export class Header extends React.Component
                 exact
               >Блог</NavLink>
             </li>
-            <li>
+            <li role="menuitem">
               <NavLink
                 to="/Контакты"
                 onKeyDown={ this.onKeyDown }

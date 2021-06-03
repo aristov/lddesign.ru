@@ -5,7 +5,7 @@ import { slugify } from 'transliteration'
 import config from '../src/config.js'
 
 const cwd = process.cwd()
-const INPUT_PATH = './tmp/media'
+const INPUT_PATH = './data'
 const OUTPUT_PATH = './public' + config.DATA_DIR
 const THUMBS_DIR = config.THUMBS_DIR
 const IMAGE_SIZE = 1200

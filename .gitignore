@@ -1,5 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/tmp
+/data
 /public/config.php
 
 # dependencies
@@ -20,7 +22,6 @@
 .env.test.local
 .env.production.local
 .idea
-/tmp
 
 npm-debug.log*
 yarn-debug.log*

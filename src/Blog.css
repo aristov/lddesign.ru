@@ -38,6 +38,11 @@
 {
   margin-right: 5px;
 }
+.Blog .Loading
+{
+  text-align: center;
+  padding: 50px;
+}
 @media (min-width: 900px)
 {
   .Blog

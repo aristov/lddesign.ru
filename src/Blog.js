@@ -7,26 +7,50 @@ export class Blog extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { data : null }
+    this.state = { data : [], busy : false }
+    this._ref = React.createRef()
+    this.load = this.load.bind(this)
+    this.onScroll = this.onScroll.bind(this)
   }
 
   componentDidMount() {
-    fetch('http://new.lddesign.ru/blog.php')
+    this.load()
+  }
+
+  load() {
+    if(this.state.busy) {
+      return
+    }
+    const data = this.state.data
+    this.setState({ busy : true })
+    fetch('http://new.lddesign.ru/blog.php?offset=' + data.length)
     .then(res => res.json())
     .then(res => {
-      console.log(res.response)
-      this.setState({ data : res.response })
+      this._count = res.count
+      this.setState({ data : [...data, ...res.items], busy : false })
     })
   }
 
-  render() {
-    if(!this.state.data) {
-      return <div className="Loading">Загрузка...</div>
+  onScroll() {
+    if(this.state.data.length >= this._count) {
+      return
     }
+    const node = this._ref.current
+    if(node.scrollTop > node.scrollHeight - node.clientHeight * 2) {
+      this.load()
+    }
+  }
+
+  render() {
+    const { data, busy } = this.state
     return (
-      <div className="Blog">
+      <div role="feed"
+           className="Blog"
+           onScroll={ this.onScroll }
+           ref={ this._ref }
+           aria-busy={ String(busy) }>
         {
-          this.state.data.items.map(item => {
+          data.map(item => {
             if(!item.text && !item.attachments) {
               return null
             }
@@ -38,11 +62,9 @@ export class Blog extends React.Component
               <article key={ item.id }>
                 <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
                 <h3 dangerouslySetInnerHTML={ { __html : linkInsert(title) } }/>
-                { text.length?
-                  text.map(p => {
-                    return <p key={ p } dangerouslySetInnerHTML={ { __html : linkInsert(p) } }/>
-                  }) :
-                  null }
+                { !!text.length && text.map(p => {
+                  return <p key={ p } dangerouslySetInnerHTML={ { __html : linkInsert(p) } }/>
+                }) }
                 { item.attachments?.map(attachment => {
                   if(attachment.type === 'photo') {
                     return (
@@ -57,6 +79,7 @@ export class Blog extends React.Component
             )
           })
         }
+        { busy && <div className="Loading">Загрузка...</div> }
       </div>
     )
   }

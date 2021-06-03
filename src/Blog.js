@@ -49,40 +49,43 @@ export class Blog extends React.Component
            onScroll={ this.onScroll }
            ref={ this._ref }
            aria-busy={ String(busy) }>
-        {
-          data.map(item => {
-            if(!item.text && !item.attachments) {
-              return null
-            }
-            if(item.copy_history) {
-              return null
-            }
-            const [title, ...text] = item.text.split('\n\n')
-            return (
-              <article key={ item.id }>
-                <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
-                <h3 dangerouslySetInnerHTML={ { __html : linkInsert(title) } }/>
-                { !!text.length && text.map(p => {
-                  return <p key={ p } dangerouslySetInnerHTML={ { __html : linkInsert(p) } }/>
-                }) }
-                { item.attachments?.map(attachment => {
-                  if(attachment.type === 'photo') {
-                    return (
-                      <img key={ attachment.photo.id }
-                           src={ attachment.photo.sizes.find(size => size.type === 'r')?.url }
-                           alt=""/>
-                    )
-                  }
-                  return null
-                }) }
-              </article>
-            )
-          })
-        }
+        { data.map(item => {
+          if(!item.text && !item.attachments) {
+            return null
+          }
+          if(item.copy_history) {
+            return null
+          }
+          return <Post key={ item.id } item={ item }/>
+        }) }
         { busy && <div className="Loading">Загрузка...</div> }
       </div>
     )
   }
+}
+
+function Post(props) {
+  const item = props.item
+  const [title, ...text] = item.text.split('\n\n')
+  return (
+    <article>
+      <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
+      <h3 dangerouslySetInnerHTML={ { __html : linkInsert(title) } }/>
+      { !!text.length && text.map(p => {
+        return <p key={ p } dangerouslySetInnerHTML={ { __html : linkInsert(p) } }/>
+      }) }
+      { item.attachments?.map(attachment => {
+        if(attachment.type === 'photo') {
+          return (
+            <img key={ attachment.photo.id }
+                 src={ attachment.photo.sizes.find(size => size.type === 'r')?.url }
+                 alt=""/>
+          )
+        }
+        return null
+      }) }
+    </article>
+  )
 }
 
 const URL_RE = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?)/g

@@ -9,15 +9,13 @@ export class Blog extends React.Component
     super(props)
     this.state = { data : [], busy : false }
     this._ref = React.createRef()
-    this.load = this.load.bind(this)
-    this.onScroll = this.onScroll.bind(this)
   }
 
   componentDidMount() {
     this.load()
   }
 
-  load() {
+  load = () => {
     if(this.state.busy) {
       return
     }
@@ -31,7 +29,7 @@ export class Blog extends React.Component
     })
   }
 
-  onScroll() {
+  onScroll = () => {
     if(this.state.data.length >= this._count) {
       return
     }

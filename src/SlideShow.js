@@ -9,9 +9,8 @@ export class SlideShow extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { current : 0 }
+    this.state = { current : 0, busy : true }
     this._ref = React.createRef()
-    this._list = React.createRef()
   }
 
   render() {
@@ -25,7 +24,7 @@ export class SlideShow extends React.Component
       document.title = album.name + ' | Лариса Дедловская'
     }
     return (
-      <div className="SlideShow" ref={ this._ref }>
+      <div className="SlideShow">
         { group?
           <h2>
             <Link to={ '/' + group.path } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
@@ -33,8 +32,8 @@ export class SlideShow extends React.Component
           </h2> :
           null }
         <div className="SlideList appear"
-             aria-busy="true"
-             ref={ this._list }
+             aria-busy={ this.state.busy }
+             ref={ this._ref }
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
           items.map((item, i) => (
@@ -62,7 +61,7 @@ export class SlideShow extends React.Component
 
   componentDidMount() {
     this.props.auto && this.tick()
-    this._hammertime = new Hammer(this._list.current)
+    this._hammertime = new Hammer(this._ref.current)
     this._hammertime.on('swipe', e => {
       if(e.direction === Hammer.DIRECTION_LEFT) {
         this.switchSlide(1, true)
@@ -72,7 +71,7 @@ export class SlideShow extends React.Component
       }
     })
     document.addEventListener('keydown', this.onKeyDown)
-    setTimeout(() => this._list.current.removeAttribute('aria-busy'))
+    setTimeout(() => this.setState({ busy : false }))
   }
 
   componentWillUnmount() {

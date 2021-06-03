@@ -7,6 +7,7 @@ export class AlbumGroup extends React.Component
 {
   constructor(props) {
     super(props)
+    this.state = { busy : true }
     this._ref = React.createRef()
   }
 
@@ -14,7 +15,7 @@ export class AlbumGroup extends React.Component
     const { group } = this.props
     document.title = group.name + ' | Лариса Дедловская'
     return (
-      <div className="AlbumGroup appear" aria-busy="true" ref={ this._ref }>
+      <div className="AlbumGroup appear" aria-busy={ this.state.busy } ref={ this._ref }>
         <div className="AlbumItem"><h2>{ group.name }</h2></div>
         { group.items.map(item => <AlbumItem key={ item.dir } album={ item }/>) }
       </div>
@@ -22,7 +23,7 @@ export class AlbumGroup extends React.Component
   }
 
   componentDidMount() {
-    setTimeout(() => this._ref.current.removeAttribute('aria-busy'))
+    setTimeout(() => this.setState({ busy : false }))
   }
 }
 

@@ -40,14 +40,13 @@ export class Blog extends React.Component
   }
 
   render() {
-    const { data, busy } = this.state
     return (
       <div role="feed"
            className="Blog"
            onScroll={ this.onScroll }
            ref={ this._ref }
-           aria-busy={ String(busy) }>
-        { data.map(item => {
+           aria-busy={ this.state.busy }>
+        { this.state.data.map(item => {
           if(!item.text && !item.attachments) {
             return null
           }
@@ -56,7 +55,7 @@ export class Blog extends React.Component
           }
           return <Post key={ item.id } item={ item }/>
         }) }
-        { busy && <div className="Loading">Загрузка...</div> }
+        { this.state.busy && <div className="Loading">Загрузка...</div> }
       </div>
     )
   }

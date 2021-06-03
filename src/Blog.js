@@ -11,7 +11,7 @@ export class Blog extends React.Component
   }
 
   componentDidMount() {
-    fetch('http://new.lddesign.ru/vk.php')
+    fetch('http://new.lddesign.ru/blog.php')
     .then(res => res.json())
     .then(res => {
       console.log(res.response)
@@ -37,8 +37,12 @@ export class Blog extends React.Component
             return (
               <article key={ item.id }>
                 <time>{ moment.unix(item.date).format('D MMM YYYY') }</time>
-                <h3>{ title }</h3>
-                { text.length? text.map(p => <p key={ p }>{ p }</p>) : null }
+                <h3 dangerouslySetInnerHTML={ { __html : linkInsert(title) } }/>
+                { text.length?
+                  text.map(p => {
+                    return <p key={ p } dangerouslySetInnerHTML={ { __html : linkInsert(p) } }/>
+                  }) :
+                  null }
                 { item.attachments?.map(attachment => {
                   if(attachment.type === 'photo') {
                     return (
@@ -56,4 +60,10 @@ export class Blog extends React.Component
       </div>
     )
   }
+}
+
+const URL_RE = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)((?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?)/g
+
+function linkInsert(str) {
+  return str.replace(URL_RE, '<a href="$1" target="_blank" rel="noreferrer">$1</a>')
 }

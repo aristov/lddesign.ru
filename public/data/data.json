@@ -5,6 +5,8 @@
     "name": "Главная",
     "items": [
       "00-01.jpg",
+      "00-02_7_night.jpg",
+      "00-03_5_color.jpg",
       "01-0_kvartira_dlya_roditelei.jpg",
       "01-1_kvartira_dlya_roditelei.jpg",
       "01-4_kvartira_dlya_roditelei.jpg",
@@ -36,6 +38,18 @@
     "path": "Современная_классика",
     "name": "Современная классика",
     "items": [
+      {
+        "dir": "sovremennaya_klassika/rekonstrukciya_osobnyaka_v_domodedovo",
+        "path": "Современная_классика/Реконструкция_особняка_в_Домодедово",
+        "name": "Реконструкция особняка в Домодедово",
+        "items": [
+          "01_7_night.jpg",
+          "02_5_color.jpg",
+          "03_6_color.jpg",
+          "04_2_color1.jpg",
+          "05_4_color.jpg"
+        ]
+      },
       {
         "dir": "sovremennaya_klassika/kvartira_v_komplekse_na_ul_vavilova_4_klassika",
         "path": "Современная_классика/Квартира_в_комплексе_на_ул_Вавилова_4_классика",

@@ -85,7 +85,7 @@ export class SlideShow extends React.Component
     this._timer = setTimeout(() => {
       this.switchSlide(1)
       this.tick()
-    }, 6000)
+    }, 5000)
   }
 
   switchSlide(shift, stop = false) {

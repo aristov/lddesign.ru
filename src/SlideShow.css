@@ -115,4 +115,8 @@
   {
     padding: 15px 20px;
   }
+  .SlideShow .SlideItem
+  {
+    background-size: contain;
+  }
 }

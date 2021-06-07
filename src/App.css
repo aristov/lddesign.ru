@@ -27,7 +27,6 @@
 }
 .App .Main
 {
-  height: 100%;
   overflow: auto;
   padding: 0 20px;
   background-color: #fff;

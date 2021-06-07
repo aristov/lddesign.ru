@@ -73,11 +73,11 @@ async function data(itemName) {
 }
 
 function normalize(name) {
-  return name.trim().replace(/^\d\s/, '').replace(/[,.]/g, '').replace(/[\s()]+/g, '_')
+  return name.trim().replace(/^\d\s/, '').replace(/[,.]/g, '').replace(/[\s():]+/g, '_')
 }
 
 function format(name) {
-  return name.trim().replace(/^\d\s/, '').replace(/[_\s]+/g, ' ')
+  return name.trim().replace(/^\d\s/, '').replace(/[_\s]+/g, ' ').replace(/:/g, '/')
 }
 
 fs.rmSync(path.join(cwd, OUTPUT_PATH), { recursive : true, force : true })

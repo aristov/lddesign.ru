@@ -7,67 +7,38 @@
       "00-01.jpg",
       "01-0_kvartira_dlya_roditelei.jpg",
       "01-1_kvartira_dlya_roditelei.jpg",
-      "01-3_kvartira_dlya_roditelei.jpg",
       "01-4_kvartira_dlya_roditelei.jpg",
-      "02-1_kvartira_na_leninskom_prospekte.jpg",
       "02-2_kvartira_na_leninskom_prospekte.jpg",
       "02-3_kvartira_na_leninskom_prospekte.jpg",
       "03-1_kvartira_na_shelepihinskoi_naberezhnoi.jpg",
-      "03-2_kvartira_na_shelepihinskoi_naberezhnoi.jpg",
       "03-3_kvartira_na_shelepihinskoi_naberezhnoi.jpg",
-      "04-1_kvartira_na_otkrytom_shosse.jpg",
       "04-2_kvartira_na_otkrytom_shosse.jpg",
       "04-3_kvartira_na_otkrytom_shosse.jpg",
-      "04-4_kvartira_na_otkrytom_shosse.jpg",
       "04-5_kvartira_na_otkrytom_shosse.jpg",
       "05-1_kabinet_rukovoditelya.jpg",
       "05-2_kabinet_rukovoditelya.jpg",
-      "05-3_kabinet_rukovoditelya.jpg",
-      "06-1_kvartira_na_paveleckoi_naberezhnoi.jpg",
-      "06-2_kvartira_na_paveleckoi_naberezhnoi.jpg",
       "07-1_kvartira_na_hodynke_dlya_sdachi_v_arendu.jpg",
-      "08-1_kvartira_na_ulice_vavilova.jpg",
       "08-2_kvartira_na_ulice_vavilova.jpg",
-      "08-3_kvartira_na_ulice_vavilova.jpg",
       "09-1_kvartira_v_domodedovo.jpg",
-      "09-2_kvartira_v_domodedovo.jpg",
       "09-3_kvartira_v_domodedovo.jpg",
-      "09-4_kvartira_v_domodedovo.jpg",
       "09-5_kvartira_v_domodedovo.jpg",
       "09-6_kvartira_v_domodedovo.jpg",
-      "10-1_uchebnaya_rabota._vizualizaciya_po_referensu.jpg",
-      "10-2_uchebnaya_rabota._vizualizaciya_po_referensu.jpg",
-      "10-3_uchebnaya_rabota._vizualizaciya_po_referensu.jpg",
       "10-4_uchebnaya_rabota._vizualizaciya_po_referensu.jpg",
       "11-1_kvartira_v_stile_loft.jpg",
-      "11-2_kvartira_v_stile_loft.jpg",
-      "11-3_kvartira_v_stile_loft.jpg",
       "11-4_kvartira_v_stile_loft.jpg",
       "12-10_osobnyak_s_besedkoi_i_basseinom.jpg",
       "12-11_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-1_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-2_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-3_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-4_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-5_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-6_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-7_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-8_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "12-9_osobnyak_s_besedkoi_i_basseinom.jpg",
-      "13-1_mikroraion_v_reutovo.jpg",
-      "13-2_mikroraion_v_reutovo.jpg",
-      "13-3_mikroraion_v_reutovo.jpg",
-      "13-4_mikroraion_v_reutovo.jpg"
+      "12-7_osobnyak_s_besedkoi_i_basseinom.jpg"
     ]
   },
   {
-    "dir": "klassika",
-    "path": "Классика",
-    "name": "Классика",
+    "dir": "sovremennaya_klassika",
+    "path": "Современная_классика",
+    "name": "Современная классика",
     "items": [
       {
-        "dir": "klassika/kvartira_v_komplekse_na_ul_vavilova_4_klassika",
-        "path": "Классика/Квартира_в_комплексе_на_ул_Вавилова_4_классика",
+        "dir": "sovremennaya_klassika/kvartira_v_komplekse_na_ul_vavilova_4_klassika",
+        "path": "Современная_классика/Квартира_в_комплексе_на_ул_Вавилова_4_классика",
         "name": "Квартира в комплексе на ул. Вавилова 4 классика",
         "items": [
           "1.jpg",
@@ -81,8 +52,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_shelepihinskoi_naberezhnoi",
-        "path": "Классика/Квартира_на_Шелепихинской_набережной",
+        "dir": "sovremennaya_klassika/kvartira_na_shelepihinskoi_naberezhnoi",
+        "path": "Современная_классика/Квартира_на_Шелепихинской_набережной",
         "name": "Квартира на Шелепихинской набережной",
         "items": [
           "0.jpg",
@@ -102,8 +73,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_v_komplekse_na_ul_vavilova_4_sovremennaya",
-        "path": "Классика/Квартира_в_комплексе_на_ул_Вавилова_4_современная",
+        "dir": "sovremennaya_klassika/kvartira_v_komplekse_na_ul_vavilova_4_sovremennaya",
+        "path": "Современная_классика/Квартира_в_комплексе_на_ул_Вавилова_4_современная",
         "name": "Квартира в комплексе на ул. Вавилова 4 современная",
         "items": [
           "1.jpg",
@@ -131,8 +102,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_vavilova_4_foto_gostinoi-stolovoi",
-        "path": "Классика/Квартира_на_Вавилова_4_Фото_гостиной-столовой",
+        "dir": "sovremennaya_klassika/kvartira_na_vavilova_4_foto_gostinoi-stolovoi",
+        "path": "Современная_классика/Квартира_на_Вавилова_4_Фото_гостиной-столовой",
         "name": "Квартира на Вавилова 4. Фото гостиной-столовой",
         "items": [
           "kap_0001tiff.jpg",
@@ -184,8 +155,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_dlya_roditelei_na_krasnogvardeiskom_bulvare",
-        "path": "Классика/Квартира_для_родителей_на_Красногвардейском_бульваре",
+        "dir": "sovremennaya_klassika/kvartira_dlya_roditelei_na_krasnogvardeiskom_bulvare",
+        "path": "Современная_классика/Квартира_для_родителей_на_Красногвардейском_бульваре",
         "name": "Квартира для родителей на Красногвардейском бульваре",
         "items": [
           "1kuhnya-stolovaya1.jpg",
@@ -203,8 +174,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_paveleckoi_naberezhnoi",
-        "path": "Классика/Квартира_на_Павелецкой_набережной",
+        "dir": "sovremennaya_klassika/kvartira_na_paveleckoi_naberezhnoi",
+        "path": "Современная_классика/Квартира_на_Павелецкой_набережной",
         "name": "Квартира на Павелецкой набережной",
         "items": [
           "1-inst.jpg",
@@ -216,8 +187,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_v_domodedovo",
-        "path": "Классика/Квартира_в_Домодедово",
+        "dir": "sovremennaya_klassika/kvartira_v_domodedovo",
+        "path": "Современная_классика/Квартира_в_Домодедово",
         "name": "Квартира в Домодедово",
         "items": [
           "2-3.jpg",
@@ -235,8 +206,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_karamyshevskoi_naberezhnoi",
-        "path": "Классика/Квартира_на_Карамышевской_набережной",
+        "dir": "sovremennaya_klassika/kvartira_na_karamyshevskoi_naberezhnoi",
+        "path": "Современная_классика/Квартира_на_Карамышевской_набережной",
         "name": "Квартира на Карамышевской набережной",
         "items": [
           "gostinaya_004.jpg",
@@ -251,8 +222,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_leninskom_prospekte",
-        "path": "Классика/Квартира_на_Ленинском_проспекте",
+        "dir": "sovremennaya_klassika/kvartira_na_leninskom_prospekte",
+        "path": "Современная_классика/Квартира_на_Ленинском_проспекте",
         "name": "Квартира на Ленинском проспекте",
         "items": [
           "vid-ot-okon.jpg",
@@ -270,8 +241,8 @@
         ]
       },
       {
-        "dir": "klassika/kvartira_na_prospekte_mira",
-        "path": "Классика/Квартира_на_проспекте_Мира",
+        "dir": "sovremennaya_klassika/kvartira_na_prospekte_mira",
+        "path": "Современная_классика/Квартира_на_проспекте_Мира",
         "name": "Квартира на проспекте Мира",
         "items": [
           "gostinaya_001.jpg",
@@ -289,8 +260,8 @@
         ]
       },
       {
-        "dir": "klassika/osobnyak_v_domodedovo",
-        "path": "Классика/Особняк_в_Домодедово",
+        "dir": "sovremennaya_klassika/osobnyak_v_domodedovo",
+        "path": "Современная_классика/Особняк_в_Домодедово",
         "name": "Особняк в Домодедово",
         "items": [
           "bassein-029.jpg",
@@ -333,13 +304,13 @@
     ]
   },
   {
-    "dir": "lofty",
-    "path": "Лофты",
-    "name": "Лофты",
+    "dir": "loft_minimalizm",
+    "path": "Лофт_минимализм",
+    "name": "Лофт / минимализм",
     "items": [
       {
-        "dir": "lofty/kvartira_v_komplekse_dolina_setun",
-        "path": "Лофты/Квартира_в_комплексе_Долина_Сетунь",
+        "dir": "loft_minimalizm/kvartira_v_komplekse_dolina_setun",
+        "path": "Лофт_минимализм/Квартира_в_комплексе_Долина_Сетунь",
         "name": "Квартира в комплексе Долина Сетунь",
         "items": [
           "vannaya_001.jpg",
@@ -377,8 +348,8 @@
         ]
       },
       {
-        "dir": "lofty/kvartira_na_otkrytom_shosse",
-        "path": "Лофты/Квартира_на_Открытом_шоссе",
+        "dir": "loft_minimalizm/kvartira_na_otkrytom_shosse",
+        "path": "Лофт_минимализм/Квартира_на_Открытом_шоссе",
         "name": "Квартира на Открытом шоссе",
         "items": [
           "1-gostinaya-tv.jpg",
@@ -391,8 +362,8 @@
         ]
       },
       {
-        "dir": "lofty/uchebnaya_rabota_na_baze_realnogo_obekta",
-        "path": "Лофты/Учебная_работа_на_базе_реального_объекта",
+        "dir": "loft_minimalizm/uchebnaya_rabota_na_baze_realnogo_obekta",
+        "path": "Лофт_минимализм/Учебная_работа_на_базе_реального_объекта",
         "name": "Учебная работа на базе реального объекта",
         "items": [
           "all_den1.jpg",
@@ -408,8 +379,8 @@
         ]
       },
       {
-        "dir": "lofty/dom_v_sosnovom_lesu",
-        "path": "Лофты/Дом_в_сосновом_лесу",
+        "dir": "loft_minimalizm/dom_v_sosnovom_lesu",
+        "path": "Лофт_минимализм/Дом_в_сосновом_лесу",
         "name": "Дом в сосновом лесу",
         "items": [
           "color.jpg",
@@ -419,8 +390,8 @@
         ]
       },
       {
-        "dir": "lofty/kvartira_na_hodynke_dlya_sdachi_v_arendu",
-        "path": "Лофты/Квартира_на_Ходынке_для_сдачи_в_аренду",
+        "dir": "loft_minimalizm/kvartira_na_hodynke_dlya_sdachi_v_arendu",
+        "path": "Лофт_минимализм/Квартира_на_Ходынке_для_сдачи_в_аренду",
         "name": "Квартира на Ходынке для сдачи в аренду",
         "items": [
           "1-vizualizaciya.jpg",
@@ -443,8 +414,8 @@
         ]
       },
       {
-        "dir": "lofty/kabinet_rukovoditelya",
-        "path": "Лофты/Кабинет_руководителя",
+        "dir": "loft_minimalizm/kabinet_rukovoditelya",
+        "path": "Лофт_минимализм/Кабинет_руководителя",
         "name": "Кабинет руководителя",
         "items": [
           "1.jpg",
@@ -454,8 +425,8 @@
         ]
       },
       {
-        "dir": "lofty/dvuhurovnevaya_kvartira_v_gorode_naberezhnyh",
-        "path": "Лофты/Двухуровневая_квартира_в_Городе_Набережных",
+        "dir": "loft_minimalizm/dvuhurovnevaya_kvartira_v_gorode_naberezhnyh",
+        "path": "Лофт_минимализм/Двухуровневая_квартира_в_Городе_Набережных",
         "name": "Двухуровневая квартира в Городе Набережных",
         "items": [
           "230003.jpg",
@@ -469,8 +440,8 @@
         ]
       },
       {
-        "dir": "lofty/kvartira_na_dmitrovskom_shosse",
-        "path": "Лофты/Квартира_на_Дмитровском_шоссе",
+        "dir": "loft_minimalizm/kvartira_na_dmitrovskom_shosse",
+        "path": "Лофт_минимализм/Квартира_на_Дмитровском_шоссе",
         "name": "Квартира на Дмитровском шоссе",
         "items": [
           "interior.jpg",
@@ -482,13 +453,13 @@
     ]
   },
   {
-    "dir": "eksterer",
-    "path": "Экстерьер",
-    "name": "Экстерьер",
+    "dir": "eksterer_drugoe",
+    "path": "Экстерьер_другое",
+    "name": "Экстерьер / другое",
     "items": [
       {
-        "dir": "eksterer/dom_v_kratovo_rekonstrukciya",
-        "path": "Экстерьер/Дом_в_Кратово_Реконструкция",
+        "dir": "eksterer_drugoe/dom_v_kratovo_rekonstrukciya",
+        "path": "Экстерьер_другое/Дом_в_Кратово_Реконструкция",
         "name": "Дом в Кратово. Реконструкция",
         "items": [
           "dsc_6244.jpg",
@@ -558,8 +529,8 @@
         ]
       },
       {
-        "dir": "eksterer/dom_dlya_semi_gde_mnogo_detei",
-        "path": "Экстерьер/Дом_для_семьи_где_много_детей",
+        "dir": "eksterer_drugoe/dom_dlya_semi_gde_mnogo_detei",
+        "path": "Экстерьер_другое/Дом_для_семьи_где_много_детей",
         "name": "Дом для семьи, где много детей",
         "items": [
           "10.jpg",
@@ -577,8 +548,8 @@
         ]
       },
       {
-        "dir": "eksterer/mikroraion_v_reutovo_variant2",
-        "path": "Экстерьер/Микрорайон_в_Реутово_Вариант2",
+        "dir": "eksterer_drugoe/mikroraion_v_reutovo_variant2",
+        "path": "Экстерьер_другое/Микрорайон_в_Реутово_Вариант2",
         "name": "Микрорайон в Реутово. Вариант2",
         "items": [
           "02-ptichka.jpg",
@@ -601,8 +572,8 @@
         ]
       },
       {
-        "dir": "eksterer/mikroraion_v_reutovo_koncepciya_zastroiki",
-        "path": "Экстерьер/Микрорайон_в_Реутово_Концепция_застройки",
+        "dir": "eksterer_drugoe/mikroraion_v_reutovo_koncepciya_zastroiki",
+        "path": "Экстерьер_другое/Микрорайон_в_Реутово_Концепция_застройки",
         "name": "Микрорайон в Реутово. Концепция застройки",
         "items": [
           "0.jpg",
@@ -615,8 +586,8 @@
         ]
       },
       {
-        "dir": "eksterer/uchebnaya_rabota_na_primere_realnogo_obekta",
-        "path": "Экстерьер/Учебная_работа_на_примере_реального_объекта",
+        "dir": "eksterer_drugoe/uchebnaya_rabota_na_primere_realnogo_obekta",
+        "path": "Экстерьер_другое/Учебная_работа_на_примере_реального_объекта",
         "name": "Учебная работа на примере реального объекта",
         "items": [
           "gostinaya_den.jpg",
@@ -634,8 +605,8 @@
         ]
       },
       {
-        "dir": "eksterer/uchebnaya_rabota_po_referensu_belyi_osobnyak_v_londone",
-        "path": "Экстерьер/Учебная_работа_по_референсу_Белый_особняк_в_Лондоне",
+        "dir": "eksterer_drugoe/uchebnaya_rabota_po_referensu_belyi_osobnyak_v_londone",
+        "path": "Экстерьер_другое/Учебная_работа_по_референсу_Белый_особняк_в_Лондоне",
         "name": "Учебная работа по референсу. Белый особняк в Лондоне",
         "items": [
           "dinningroom.jpg",
@@ -654,8 +625,8 @@
         ]
       },
       {
-        "dir": "eksterer/uchebnaya_rabota_dom_v_podmoskove",
-        "path": "Экстерьер/Учебная_работа_Дом_в_Подмосковье",
+        "dir": "eksterer_drugoe/uchebnaya_rabota_dom_v_podmoskove",
+        "path": "Экстерьер_другое/Учебная_работа_Дом_в_Подмосковье",
         "name": "Учебная работа. Дом в Подмосковье.",
         "items": [
           "day_1_0_111.jpg",
@@ -678,8 +649,8 @@
         ]
       },
       {
-        "dir": "eksterer/uchebnaya_rabota_pervyi_etazh_doma_v_podmoskove",
-        "path": "Экстерьер/Учебная_работа_Первый_этаж_дома_в_Подмосковье",
+        "dir": "eksterer_drugoe/uchebnaya_rabota_pervyi_etazh_doma_v_podmoskove",
+        "path": "Экстерьер_другое/Учебная_работа_Первый_этаж_дома_в_Подмосковье",
         "name": "Учебная работа. Первый этаж дома в Подмосковье",
         "items": [
           "all_day_dof.jpg",
@@ -699,8 +670,8 @@
         ]
       },
       {
-        "dir": "eksterer/chetyrehetazhnyy_taunhaus_v_ivanteevke",
-        "path": "Экстерьер/Четырехэтажный_таунхаус_в_Ивантеевке",
+        "dir": "eksterer_drugoe/chetyrehetazhnyy_taunhaus_v_ivanteevke",
+        "path": "Экстерьер_другое/Четырехэтажный_таунхаус_в_Ивантеевке",
         "name": "Четырехэтажный таунхаус в Ивантеевке",
         "items": [
           "dsc_7156.jpg",

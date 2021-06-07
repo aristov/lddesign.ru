@@ -2,6 +2,7 @@
 
 /tmp
 /data
+/old
 /public/config.php
 
 # dependencies

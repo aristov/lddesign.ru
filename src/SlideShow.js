@@ -148,10 +148,12 @@ export class SlideShow extends React.Component
 }
 
 function SlideItem(props) {
-  return (
-    <div role="img" className="SlideItem" style={ {
-      backgroundImage : `url(${ config.DATA_DIR }/${ props.url })`,
-      left : (props.index - 1) * 100 + '%',
-    } }/>
-  )
+  const style = {
+    backgroundImage : `url(${ config.DATA_DIR }/${ props.url })`,
+    left : (props.index - 1) * 100 + '%',
+  }
+  if(window.location.hostname === 'new.lddesign.ru') {
+    style.backgroundSize = 'cover'
+  }
+  return <div role="img" className="SlideItem" style={ style }/>
 }

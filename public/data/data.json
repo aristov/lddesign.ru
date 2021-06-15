@@ -4,9 +4,11 @@
     "path": "Главная",
     "name": "Главная",
     "items": [
-      "00-01.jpg",
+      "00-00.jpg",
+      "00-01_kuhnya_2.jpg",
       "00-02_7_night.jpg",
       "00-03_5_color.jpg",
+      "00-04_kuhnya_1.jpg",
       "01-0_kvartira_dlya_roditelei.jpg",
       "01-1_kvartira_dlya_roditelei.jpg",
       "01-4_kvartira_dlya_roditelei.jpg",
@@ -19,15 +21,21 @@
       "04-5_kvartira_na_otkrytom_shosse.jpg",
       "05-1_kabinet_rukovoditelya.jpg",
       "05-2_kabinet_rukovoditelya.jpg",
+      "06-2_grey_red_ch_mod.jpg",
       "07-1_kvartira_na_hodynke_dlya_sdachi_v_arendu.jpg",
       "08-2_kvartira_na_ulice_vavilova.jpg",
       "09-1_kvartira_v_domodedovo.jpg",
       "09-3_kvartira_v_domodedovo.jpg",
       "09-5_kvartira_v_domodedovo.jpg",
       "09-6_kvartira_v_domodedovo.jpg",
+      "10-2_night_perspective.jpg",
+      "10-3_night_livingroom.jpg",
       "10-4_uchebnaya_rabota._vizualizaciya_po_referensu.jpg",
       "11-1_kvartira_v_stile_loft.jpg",
-      "11-4_kvartira_v_stile_loft.jpg",
+      "11-2_loft1.jpg",
+      "11-3_loft2.jpg",
+      "11-4_loft3.jpg",
+      "11-5_kvartira_v_stile_loft.jpg",
       "12-10_osobnyak_s_besedkoi_i_basseinom.jpg",
       "12-11_osobnyak_s_besedkoi_i_basseinom.jpg",
       "12-7_osobnyak_s_besedkoi_i_basseinom.jpg"
@@ -43,11 +51,11 @@
         "path": "Современная_классика/Реконструкция_особняка_в_Домодедово",
         "name": "Реконструкция особняка в Домодедово",
         "items": [
+          "00-04_kuhnya_1.jpg",
           "01_7_night.jpg",
           "02_5_color.jpg",
           "03_6_color.jpg",
-          "04_2_color1.jpg",
-          "05_4_color.jpg"
+          "04_2_color1.jpg"
         ]
       },
       {
@@ -380,16 +388,14 @@
         "path": "Лофт_минимализм/Учебная_работа_на_базе_реального_объекта",
         "name": "Учебная работа на базе реального объекта",
         "items": [
-          "all_den1.jpg",
-          "ballet.jpg",
-          "door2.jpg",
-          "table.jpg",
-          "gostinaya-den-ispravl.jpg",
-          "kuhnya-den.jpg",
-          "kuhnya1.jpg",
-          "pol-sanuzel.jpg",
-          "spalnya1.jpg",
-          "final.jpg"
+          "01.jpg",
+          "02.jpg",
+          "03.jpg",
+          "04.jpg",
+          "05.jpg",
+          "06-1.jpg",
+          "06.jpg",
+          "07.jpg"
         ]
       },
       {
@@ -604,18 +610,14 @@
         "path": "Экстерьер_другое/Учебная_работа_на_примере_реального_объекта",
         "name": "Учебная работа на примере реального объекта",
         "items": [
-          "gostinaya_den.jpg",
-          "gostinaya_den1.jpg",
-          "kuhnya-den.jpg",
-          "kuhnya-den1.jpg",
-          "kuhnya.jpg",
-          "kuhnya1.jpg",
-          "kuhnya2.jpg",
-          "kuhnya4.jpg",
-          "noch-detskaya.jpg",
-          "pol-sanuzel.jpg",
-          "spalnya1.jpg",
-          "fragment.jpg"
+          "01.jpg",
+          "02.jpg",
+          "03.jpg",
+          "04.jpg",
+          "05.jpg",
+          "06-1.jpg",
+          "06.jpg",
+          "07.jpg"
         ]
       },
       {
@@ -644,22 +646,13 @@
         "name": "Учебная работа. Дом в Подмосковье.",
         "items": [
           "day_1_0_111.jpg",
-          "day_1_0_333.jpg",
-          "day_1_1.jpg",
           "day_2_0.jpg",
-          "day_2_1.jpg",
           "day_3_0.jpg",
-          "day_3_1.jpg",
           "day_4_0.jpg",
-          "day_4_1.jpg",
           "night_1_0.jpg",
-          "night_1_1.jpg",
           "night_2_0.jpg",
-          "night_2_1.jpg",
           "night_3_0.jpg",
-          "night_3_1.jpg",
-          "night_5_0.jpg",
-          "night_5_1.jpg"
+          "night_5_0.jpg"
         ]
       },
       {
@@ -672,14 +665,9 @@
           "kamin_day.jpg",
           "kitchen_day.jpg",
           "livingroom_day.jpg",
-          "corner_day.jpg",
           "diningroom_day.jpg",
           "night_all.jpg",
-          "night_chandelier.jpg",
-          "night_chandelier_dof.jpg",
           "night_corner.jpg",
-          "night_dinningroom.jpg",
-          "night_hall.jpg",
           "night_kitchen.jpg"
         ]
       },

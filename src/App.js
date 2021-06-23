@@ -18,46 +18,49 @@ class App extends React.Component
   }
 
   componentDidMount() {
-    fetch(config.DATA_DIR + '/data.json')
-    .then(res => res.json())
-    .then(data => {
+    Promise.all([
+      fetch(config.DATA_DIR + '/data.json').then(res => res.json()),
+      fetch('http://localhost/lddesign.ru/public/album.php').then(res => res.json())
+    ])
+    .then(([data, album]) => {
       const routes = []
-      if(data) {
-        for(const group of data.slice(1)) {
-          if(!group.items) {
+      data[0].items = album.items.map(item => {
+        return item.sizes.find(size => size.type === 'z').url
+      })
+      for(const group of data.slice(1)) {
+        if(!group.items) {
+          continue
+        }
+        for(const item of group.items) {
+          if(item.file) {
             continue
           }
-          for(const item of group.items) {
-            if(item.file) {
-              continue
-            }
-            routes.push(<Route key={ item.dir } path={ '/' + item.path }>
-              <SlideShow group={ group } album={ item }/>
-            </Route>)
-          }
-          if(group.items[0].file) {
-            routes.push(<Route key={ group.dir } path={ '/' + group.path }>
-              <main className="Main"><FileList group={ group }/></main>
-            </Route>)
-            continue
-          }
-          routes.push(<Route key={ group.dir } path={ '/' + group.path }>
-            <AlbumGroup group={ group }/>
+          routes.push(<Route key={ item.dir } path={ '/' + item.path }>
+            <SlideShow group={ group } album={ item }/>
           </Route>)
         }
-        routes.push(<Route key="Блог" path="/Блог"><Blog/></Route>)
-        routes.push(<Route key="Контакты" path="/Контакты">
-          <main className="Main"><Contacts/></main>
-        </Route>)
-        routes.push(<Route key="/" path="/" exact>
-          <SlideShow album={ data[0] } auto/>
-        </Route>)
-        routes.push(<Route key="/404" path="/">
-          <main className="Main">
-            <div className="Error">404</div>
-          </main>
+        if(group.items[0].file) {
+          routes.push(<Route key={ group.dir } path={ '/' + group.path }>
+            <main className="Main"><FileList group={ group }/></main>
+          </Route>)
+          continue
+        }
+        routes.push(<Route key={ group.dir } path={ '/' + group.path }>
+          <AlbumGroup group={ group }/>
         </Route>)
       }
+      routes.push(<Route key="Блог" path="/Блог"><Blog/></Route>)
+      routes.push(<Route key="Контакты" path="/Контакты">
+        <main className="Main"><Contacts/></main>
+      </Route>)
+      routes.push(<Route key="/" path="/" exact>
+        <SlideShow album={ data[0] } auto/>
+      </Route>)
+      routes.push(<Route key="/404" path="/">
+        <main className="Main">
+          <div className="Error">404</div>
+        </main>
+      </Route>)
       this._routes = routes
       this.setState({ data })
     })

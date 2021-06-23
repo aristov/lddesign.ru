@@ -2,6 +2,8 @@ import React from 'react'
 import './Blog.css'
 
 const { moment } = window
+const { protocol, hostname, port } = window.location
+const pathname = port? '/lddesign.ru/public/blog.php' : '/blog.php'
 
 export class Blog extends React.Component
 {
@@ -21,7 +23,7 @@ export class Blog extends React.Component
     }
     const data = this.state.data
     this.setState({ busy : true })
-    fetch('http://new.lddesign.ru/blog.php?offset=' + data.length)
+    fetch(protocol + '//' + hostname + pathname + '?offset=' + data.length)
     .then(res => res.json())
     .then(res => {
       this._count = res.count

@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import config from './config'
 import './SlideShow.css'
 
 const { Hammer } = window
@@ -37,7 +36,7 @@ export class SlideShow extends React.Component
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
           items.map((item, i) => (
-            <SlideItem key={ item } url={ album.dir + '/' + item } index={ i }/>
+            <SlideItem key={ item } url={ item } index={ i }/>
           ))
         }</div>
         <div className="SlideControl">
@@ -149,7 +148,7 @@ export class SlideShow extends React.Component
 
 function SlideItem(props) {
   const style = {
-    backgroundImage : `url(${ config.DATA_DIR }/${ props.url })`,
+    backgroundImage : `url(${ props.url })`,
     left : (props.index - 1) * 100 + '%',
   }
   if(window.location.hostname === 'new.lddesign.ru') {

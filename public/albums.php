@@ -1,10 +1,11 @@
 <?
 require_once 'config.php';
 
+$owner_id = (int) $_GET['owner_id'];
 $request_params = array(
   'v' => $version,
   'access_token' => $access_token,
-  'owner_id' => 539566,
+  'owner_id' => $owner_id,
   'need_covers' => 1,
   'photo_sizes' => 1,
 );

@@ -1,45 +1,54 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import config from './config'
+import { BASE_URL } from './common'
 import './AlbumGroup.css'
 
 export class AlbumGroup extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { busy : true }
+    this.state = { group : null, busy : true }
     this._ref = React.createRef()
   }
 
   render() {
-    const { group } = this.props
-    document.title = group.name + ' | Лариса Дедловская'
+    const group = this.state.group
+    document.title = this.props.name + ' | Лариса Дедловская'
+    if(!group) {
+      return <div className="Loading">Загрузка...</div>
+    }
     return (
       <div className="AlbumGroup appear" aria-busy={ this.state.busy } ref={ this._ref }>
-        <div className="AlbumItem"><h2>{ group.name }</h2></div>
-        { group.items.map(item => <AlbumItem key={ item.dir } album={ item }/>) }
+        <div className="AlbumItem"><h2>{ this.props.name }</h2></div>
+        { group.items.map(album => <AlbumItem key={ album.id } album={ album }/>) }
       </div>
     )
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await this.load()
     setTimeout(() => this.setState({ busy : false }))
+  }
+
+  async load() {
+    const url = new URL('albums.php', BASE_URL)
+    url.searchParams.set('owner_id', this.props.ownerId)
+    const res = await fetch(url)
+    this.setState({ group : await res.json() })
   }
 }
 
 class AlbumItem extends React.Component
 {
   render() {
-    const props = this.props
-    const url = [
-      config.DATA_DIR, props.album.dir, config.THUMBS_DIR, props.album.items[0],
-    ].join('/')
+    const album = this.props.album
+    const url = album.sizes.find(size => size.type === 'r').src
     return (
-      <Link to={ '/' + props.album.path }
+      <Link to={ '/' + -album.owner_id + '/' + album.id }
             className="AlbumItem"
             style={ { backgroundImage : `url(${ url })` } }
             onKeyDown={ this.onKeyDown }>
-        <div className="AlbumInfo">{ props.album.name }</div>
+        <div className="AlbumInfo">{ album.title }</div>
       </Link>
     )
   }

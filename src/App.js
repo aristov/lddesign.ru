@@ -80,30 +80,35 @@ class App extends React.Component
 
   render() {
     const { open, data } = this.state
+    const className = cn('App', { open, homepage : window.location.pathname === '/' })
     return (
       <BrowserRouter>
-        <div className={ cn('App', {
-          open,
-          homepage : window.location.pathname === '/',
-        }) }
-             aria-busy={ String(!data) }>
+        <div className={ className } aria-busy={ String(!data) }>
           <div className="Inner">{
             data?
               <>
-                <Header open={ open } data={ data }
+                <Header open={ open }
+                        data={ data }
                         toggleNav={ this.toggleNav }
                         closeNav={ this.closeNav }/>
                 <Switch>
-                  <Route key="/Блог" path="/Блог">
+                  <Route path="/:ownerId/:albumId" render={ ({ match }) => {
+                    const { ownerId, albumId } = match.params
+                    return <SlideShow ownerId={ -ownerId } albumId={ +albumId }/>
+                  }}/>
+                  <Route path="/Лофт_минимализм">
+                    <AlbumGroup ownerId={ -205407254 } name="Лофт / минимализм"/>
+                  </Route>
+                  <Route path="/Блог">
                     <Blog/>
                   </Route>
-                  <Route key="/Контакты" path="/Контакты">
+                  <Route path="/Контакты">
                     <main className="Main"><Contacts/></main>
                   </Route>
-                  <Route key="/" path="/" exact>
+                  <Route path="/" exact>
                     <SlideShow ownerId={ -204943414 } albumId={ 278146389 } auto/>
                   </Route>
-                  <Route key="/404" path="/">
+                  <Route path="*">
                     <main className="Main">
                       <div className="Error">404</div>
                     </main>

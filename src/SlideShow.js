@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { BASE_URL } from './common'
 import './SlideShow.css'
 
 const { Hammer } = window
@@ -8,13 +9,16 @@ export class SlideShow extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { current : 0, busy : true }
+    this.state = { album : null, current : 0, busy : true }
     this._ref = React.createRef()
   }
 
   render() {
+    const album = this.state.album
+    if(!album) {
+      return <div className="Loading">Загрузка...</div>
+    }
     const group = this.props.group
-    const album = this.props.album
     const current = this.state.current
     const prev = this.getIndex(current - 1)
     const next = this.getIndex(current + 1)
@@ -36,7 +40,7 @@ export class SlideShow extends React.Component
              onClick={ this.onClick }
              onTransitionEnd={ this.onTransitionEnd }>{
           items.map((item, i) => (
-            <SlideItem key={ item } url={ item } index={ i }/>
+            <SlideItem key={ item.id } item={ item } index={ i }/>
           ))
         }</div>
         <div className="SlideControl">
@@ -58,7 +62,8 @@ export class SlideShow extends React.Component
     )
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    await this.load()
     this.props.auto && this.tick()
     this._hammertime = new Hammer(this._ref.current)
     this._hammertime.on('swipe', e => {
@@ -76,8 +81,17 @@ export class SlideShow extends React.Component
   componentWillUnmount() {
     this._timer && clearTimeout(this._timer)
     this._timer = null
-    this._hammertime.off('swipe')
+    this._hammertime?.off('swipe')
     document.removeEventListener('keydown', this.onKeyDown)
+  }
+  
+  async load() {
+    const url = new URL('album.php', BASE_URL)
+    url.searchParams.set('owner_id', this.props.ownerId)
+    url.searchParams.set('album_id', this.props.albumId)
+    const res = await fetch(url)
+    const album = await res.json()
+    this.setState({ album })
   }
 
   tick() {
@@ -100,7 +114,7 @@ export class SlideShow extends React.Component
   }
 
   getIndex(i) {
-    const items = this.props.album.items
+    const items = this.state.album.items
     return i < 0? items.length + i : i % items.length
   }
 
@@ -147,8 +161,9 @@ export class SlideShow extends React.Component
 }
 
 function SlideItem(props) {
+  const url = props.item.sizes.find(size => size.type === 'z').url
   const style = {
-    backgroundImage : `url(${ props.url })`,
+    backgroundImage : `url(${ url })`,
     left : (props.index - 1) * 100 + '%',
   }
   if(window.location.hostname === 'new.lddesign.ru') {

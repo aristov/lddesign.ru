@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import cn from 'classnames'
 import config from './config'
+import { BASE_URL } from './common'
 import { Header } from './Header'
 import { SlideShow } from './SlideShow'
 import { AlbumGroup } from './AlbumGroup'
@@ -18,9 +19,12 @@ class App extends React.Component
   }
 
   componentDidMount() {
+    const url = new URL('album.php', BASE_URL)
+    url.searchParams.set('owner_id', -204943414)
+    url.searchParams.set('album_id', 278146389)
     Promise.all([
       fetch(config.DATA_DIR + '/data.json').then(res => res.json()),
-      fetch('http://localhost/lddesign.ru/public/album.php').then(res => res.json())
+      fetch(url).then(res => res.json()),
     ])
     .then(([data, album]) => {
       const routes = []
@@ -89,7 +93,22 @@ class App extends React.Component
                 <Header open={ open } data={ data }
                         toggleNav={ this.toggleNav }
                         closeNav={ this.closeNav }/>
-                <Switch>{ this._routes }</Switch>
+                <Switch>
+                  <Route key="/Блог" path="/Блог">
+                    <Blog/>
+                  </Route>
+                  <Route key="/Контакты" path="/Контакты">
+                    <main className="Main"><Contacts/></main>
+                  </Route>
+                  <Route key="/" path="/" exact>
+                    <SlideShow ownerId={ -204943414 } albumId={ 278146389 } auto/>
+                  </Route>
+                  <Route key="/404" path="/">
+                    <main className="Main">
+                      <div className="Error">404</div>
+                    </main>
+                  </Route>
+                </Switch>
                 <div className="Backdrop" onClick={ this.closeNav }/>
               </> :
               <div className="Loading">Загрузка...</div>

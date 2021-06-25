@@ -1,6 +1,7 @@
 <?
 require_once 'config.php';
 
+$owner_id = (int) $_GET['owner_id'];
 $offset = (int) $_GET['offset'];
 if(!$offset) {
   $offset = 0;

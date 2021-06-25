@@ -1,9 +1,8 @@
 import React from 'react'
+import api from './api'
 import './Blog.css'
 
 const { moment } = window
-const { protocol, hostname, port } = window.location
-const pathname = port? '/lddesign.ru/public/blog.php' : '/blog.php'
 
 export class Blog extends React.Component
 {
@@ -14,21 +13,18 @@ export class Blog extends React.Component
   }
 
   componentDidMount() {
-    this.load()
+    void this.load()
   }
 
-  load = () => {
+  async load() {
     if(this.state.busy) {
       return
     }
     const data = this.state.data
     this.setState({ busy : true })
-    fetch(protocol + '//' + hostname + pathname + '?offset=' + data.length)
-    .then(res => res.json())
-    .then(res => {
-      this._count = res.count
-      this.setState({ data : [...data, ...res.items], busy : false })
-    })
+    const { count, items } = await api.getBlog(data.length)
+    this._count = count
+    this.setState({ data : [...data, ...items], busy : false })
   }
 
   onScroll = () => {
@@ -37,7 +33,7 @@ export class Blog extends React.Component
     }
     const node = this._ref.current
     if(node.scrollTop > node.scrollHeight - node.clientHeight * 2) {
-      this.load()
+      void this.load()
     }
   }
 

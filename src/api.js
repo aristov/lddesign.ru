@@ -23,7 +23,7 @@ const api = {
     '/' : {
       owner_id : -204943414,
       id : 278146389,
-    }
+    },
   },
   async getSection(path) {
     const section = this.cache[path]
@@ -57,7 +57,14 @@ const api = {
     const { items } = await res.json()
     album.items = items
     return album
-  }
+  },
+  async getBlog(offset) {
+    const url = new URL('blog.php', BASE_URL)
+    url.searchParams.set('owner_id', this.cache['/'].owner_id)
+    url.searchParams.set('offset', offset)
+    const res = await fetch(url)
+    return res.json()
+  },
 }
 
 for(const section of api.sections) {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ErrorPage } from './ErrorPage'
+import { Loading } from './Loading'
 import api from './api'
 import './SlideShow.css'
 
@@ -20,7 +21,7 @@ export class SlideShow extends React.Component
       return <ErrorPage/>
     }
     if(!album) {
-      return <div className="Loading">Загрузка...</div>
+      return <Loading/>
     }
     const section = album.section
     const current = this.state.current

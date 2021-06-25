@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ErrorPage } from './ErrorPage'
+import { Loading } from './Loading'
 import api from './api'
 import './AlbumGroup.css'
 
@@ -18,7 +19,7 @@ export class AlbumGroup extends React.Component
       return <ErrorPage/>
     }
     if(!group) {
-      return <div className="Loading">Загрузка...</div>
+      return <Loading/>
     }
     document.title = group.title + ' | Лариса Дедловская'
     return (

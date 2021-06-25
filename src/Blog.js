@@ -1,4 +1,5 @@
 import React from 'react'
+import { Loading } from './Loading'
 import api from './api'
 import './Blog.css'
 
@@ -53,7 +54,7 @@ export class Blog extends React.Component
           }
           return <Post key={ item.id } item={ item }/>
         }) }
-        { this.state.busy && <div className="Loading">Загрузка...</div> }
+        { this.state.busy && <Loading/> }
       </div>
     )
   }

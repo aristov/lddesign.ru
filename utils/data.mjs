@@ -6,18 +6,10 @@ import { slugify } from 'transliteration'
 const cwd = process.cwd()
 const INPUT_PATH = './data/src'
 const OUTPUT_PATH = './data/output'
-const THUMBS_DIR = 'thumbs'
 const IMAGE_SIZE = 1200
-const THUMB_SIZE = 500
 const options = {
   width : IMAGE_SIZE,
   height : IMAGE_SIZE,
-  fit : 'inside',
-  withoutEnlargement : true,
-}
-const thumbOptions = {
-  width : THUMB_SIZE,
-  height : THUMB_SIZE,
   fit : 'inside',
   withoutEnlargement : true,
 }
@@ -27,37 +19,22 @@ async function data(itemName) {
   const srcPath = path.join(cwd, INPUT_PATH, itemName)
   const stats = fs.statSync(srcPath)
   if(!stats.isDirectory()) {
-    if(!/\.(png|jpg|tif|pdf)$/i.test(ext)) {
+    if(!/\.(png|jpg|tif)$/i.test(ext)) {
       return null
     }
     const dirName = dir.split('/').map(chunk => slugify(normalize(chunk))).join('/')
-    if(ext === '.pdf') {
-      const destName = slugify(name.trim()) + '.pdf'
-      const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
-      fs.copyFileSync(srcPath, destPath)
-      return {
-        name : name.replace(/^\d+\s/, ''),
-        file : [dirName.slice(1), destName].join('/'),
-      }
-    }
     const destName = slugify(name.trim()) + '.jpg'
     const destPath = path.join(cwd, OUTPUT_PATH, dirName, destName)
-    const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMBS_DIR, destName)
     const file = fs.readFileSync(srcPath)
-    await Promise.all([
-      sharp(file).resize(options).toFile(destPath),
-      sharp(file).resize(thumbOptions).toFile(thumbPath),
-    ])
+    await sharp(file).resize(options).toFile(destPath)
     console.log(destPath)
     return destName
   }
   const pathName = itemName.split('/').map(chunk => normalize(chunk)).join('/')
   const dirName = itemName.split('/').map(chunk => slugify(normalize(chunk))).join('/')
   const destPath = path.join(cwd, OUTPUT_PATH, dirName)
-  const thumbPath = path.join(cwd, OUTPUT_PATH, dirName, THUMBS_DIR)
   const items = []
   fs.existsSync(destPath) || fs.mkdirSync(destPath)
-  fs.existsSync(thumbPath) || fs.mkdirSync(thumbPath)
   console.log(destPath)
   for(const item of fs.readdirSync(srcPath)) {
     const result = await data(path.join(itemName, item))

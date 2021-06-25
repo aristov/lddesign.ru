@@ -96,8 +96,14 @@ class App extends React.Component
                     const { ownerId, albumId } = match.params
                     return <SlideShow ownerId={ -ownerId } albumId={ +albumId }/>
                   }}/>
+                  <Route path="/Современная_классика">
+                    <AlbumGroup ownerId={ -205424841 } name="Современная классика"/>
+                  </Route>
                   <Route path="/Лофт_минимализм">
                     <AlbumGroup ownerId={ -205407254 } name="Лофт / минимализм"/>
+                  </Route>
+                  <Route path="/Экстерьер_другое">
+                    <AlbumGroup ownerId={ -205425358 } name="Экстерьер / другое"/>
                   </Route>
                   <Route path="/Блог">
                     <Blog/>

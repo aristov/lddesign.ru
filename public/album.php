@@ -8,6 +8,7 @@ $request_params = array(
   'access_token' => $access_token,
   'owner_id' => $owner_id,
   'album_id' => $album_id,
+  'count' => 1000,
 );
 $get_params = http_build_query($request_params);
 $result = json_decode(file_get_contents('https://api.vk.com/method/photos.get?' . $get_params));

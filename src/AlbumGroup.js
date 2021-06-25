@@ -25,9 +25,14 @@ export class AlbumGroup extends React.Component
     )
   }
 
-  async componentDidMount() {
-    await this.load()
-    setTimeout(() => this.setState({ busy : false }))
+  componentDidMount() {
+    void this.load()
+  }
+
+  componentDidUpdate(prevProps) {
+    if(this.props.ownerId !== prevProps.ownerId) {
+      void this.load()
+    }
   }
 
   async load() {
@@ -35,6 +40,7 @@ export class AlbumGroup extends React.Component
     url.searchParams.set('owner_id', this.props.ownerId)
     const res = await fetch(url)
     this.setState({ group : await res.json() })
+    setTimeout(() => this.setState({ busy : false }))
   }
 }
 

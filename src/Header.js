@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import api from './api'
 import './Header.css'
 
 const { Hammer } = window
@@ -22,19 +23,23 @@ export class Header extends React.Component
         </div>
         <nav ref={ this._nav }>
           <ul role="menu" onClick={ this.props.closeNav }>
-            {
-              this.props.data.slice(1).map(item => {
-                return (
-                  <li role="menuitem" key={ item.dir }>
-                    <NavLink to={ '/' + item.path }
-                             onKeyDown={ this.onKeyDown }
-                             activeClassName="current"
-                             exact
-                    >{ item.name }</NavLink>
-                  </li>
-                )
-              })
-            }
+            { api.sections.map(section => (
+              <li role="menuitem" key={ section.owner_id }>
+                <NavLink to={ section.path }
+                         onKeyDown={ this.onKeyDown }
+                         activeClassName="current"
+                         exact
+                >{ section.title }</NavLink>
+              </li>
+            )) }
+            <li role="menuitem">
+              <NavLink
+                to="/Проектирование"
+                onKeyDown={ this.onKeyDown }
+                activeClassName="current"
+                exact
+              >Проектирование</NavLink>
+            </li>
             <li role="menuitem">
               <NavLink
                 to="/Блог"

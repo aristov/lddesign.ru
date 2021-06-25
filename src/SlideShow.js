@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ErrorPage } from './ErrorPage'
 import api from './api'
 import './SlideShow.css'
 
@@ -9,12 +10,15 @@ export class SlideShow extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { album : null, current : 0, busy : true }
+    this.state = { album : null, current : 0, busy : true, err : null }
     this._ref = React.createRef()
   }
 
   render() {
-    const album = this.state.album
+    const { album, err } = this.state
+    if(err) {
+      return <ErrorPage/>
+    }
     if(!album) {
       return <div className="Loading">Загрузка...</div>
     }
@@ -62,6 +66,9 @@ export class SlideShow extends React.Component
 
   async componentDidMount() {
     await this.load()
+    if(this.state.err) {
+      return
+    }
     this.props.auto && this.tick()
     this._hammertime = new Hammer(this._ref.current)
     this._hammertime.on('swipe', e => {
@@ -83,8 +90,13 @@ export class SlideShow extends React.Component
   }
 
   async load() {
-    this.setState({ album : await api.getAlbum(this.props.path) })
-    setTimeout(() => this.setState({ busy : false }))
+    try {
+      this.setState({ album : await api.getAlbum(this.props.path) })
+      setTimeout(() => this.setState({ busy : false }))
+    }
+    catch(err) {
+      this.setState({ err })
+    }
   }
 
   tick() {

@@ -8,6 +8,7 @@ import { AlbumGroup } from './AlbumGroup'
 import { FileList } from './FileList'
 import { Contacts } from './Contacts'
 import { Blog } from './Blog'
+import { ErrorPage } from './ErrorPage'
 import './App.css'
 
 class App extends React.Component
@@ -58,9 +59,7 @@ class App extends React.Component
                 <SlideShow path="/" auto/>
               </Route>
               <Route path="*">
-                <main className="Main">
-                  <div className="Error">404</div>
-                </main>
+                <ErrorPage/>
               </Route>
             </Switch>
             <div className="Backdrop" onClick={ this.closeNav }/>

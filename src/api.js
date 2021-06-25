@@ -18,6 +18,9 @@ const api = {
   },
   async getSection(path) {
     const section = this.cache[path]
+    if(!section) {
+      throw Error('Страница не найдена')
+    }
     if(section.items) {
       return section
     }
@@ -37,6 +40,9 @@ const api = {
     if(!album) {
       await this.getSection('/' + path.slice(1).split('/')[0])
       album = this.cache[path]
+    }
+    if(!album) {
+      throw Error('Страница не найдена')
     }
     if(album.items) {
       return album

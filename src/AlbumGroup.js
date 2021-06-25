@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { ErrorPage } from './ErrorPage'
 import api from './api'
 import './AlbumGroup.css'
 
@@ -7,12 +8,15 @@ export class AlbumGroup extends React.Component
 {
   constructor(props) {
     super(props)
-    this.state = { group : null, busy : true }
+    this.state = { group : null, busy : true, err : null }
     this._ref = React.createRef()
   }
 
   render() {
-    const group = this.state.group
+    const { group, err } = this.state
+    if(err) {
+      return <ErrorPage/>
+    }
     if(!group) {
       return <div className="Loading">Загрузка...</div>
     }
@@ -37,8 +41,13 @@ export class AlbumGroup extends React.Component
   }
 
   async load() {
-    this.setState({ group : await api.getSection(this.props.path) })
-    setTimeout(() => this.setState({ busy : false }))
+    try {
+      this.setState({ group : await api.getSection(this.props.path) })
+      setTimeout(() => this.setState({ busy : false }))
+    }
+    catch(err) {
+      this.setState({ err })
+    }
   }
 }
 

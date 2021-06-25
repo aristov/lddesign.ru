@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from './common'
+import api from './api'
 import './AlbumGroup.css'
 
 export class AlbumGroup extends React.Component
@@ -13,13 +13,13 @@ export class AlbumGroup extends React.Component
 
   render() {
     const group = this.state.group
-    document.title = this.props.name + ' | Лариса Дедловская'
     if(!group) {
       return <div className="Loading">Загрузка...</div>
     }
+    document.title = group.title + ' | Лариса Дедловская'
     return (
       <div className="AlbumGroup appear" aria-busy={ this.state.busy } ref={ this._ref }>
-        <div className="AlbumItem"><h2>{ this.props.name }</h2></div>
+        <div className="AlbumItem"><h2>{ group.title }</h2></div>
         { group.items.map(album => <AlbumItem key={ album.id } album={ album }/>) }
       </div>
     )
@@ -30,16 +30,14 @@ export class AlbumGroup extends React.Component
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.ownerId !== prevProps.ownerId) {
+    if(this.props.path !== prevProps.path) {
+      this.setState({ busy : true })
       void this.load()
     }
   }
 
   async load() {
-    const url = new URL('albums.php', BASE_URL)
-    url.searchParams.set('owner_id', this.props.ownerId)
-    const res = await fetch(url)
-    this.setState({ group : await res.json() })
+    this.setState({ group : await api.getSection(this.props.path) })
     setTimeout(() => this.setState({ busy : false }))
   }
 }
@@ -50,7 +48,7 @@ class AlbumItem extends React.Component
     const album = this.props.album
     const url = album.sizes.find(size => size.type === 'r').src
     return (
-      <Link to={ '/' + -album.owner_id + '/' + album.id }
+      <Link to={ album.path }
             className="AlbumItem"
             style={ { backgroundImage : `url(${ url })` } }
             onKeyDown={ this.onKeyDown }>

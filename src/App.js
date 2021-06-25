@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import cn from 'classnames'
+import api from './api'
 import config from './config'
 import { BASE_URL } from './common'
 import { Header } from './Header'
@@ -92,10 +93,14 @@ class App extends React.Component
                         toggleNav={ this.toggleNav }
                         closeNav={ this.closeNav }/>
                 <Switch>
-                  <Route path="/:ownerId/:albumId" render={ ({ match }) => {
-                    const { ownerId, albumId } = match.params
-                    return <SlideShow ownerId={ -ownerId } albumId={ +albumId }/>
-                  }}/>
+                  <Route path="/:sectionPath/:albumPath" render={ ({ match }) => {
+                    return <SlideShow path={ match.url }/>
+                  } }/>
+                  { api.sections.map(section => (
+                    <Route key={ section.owner_id } path={ section.path }>
+                      <AlbumGroup path={ section.path }/>
+                    </Route>
+                  )) }
                   <Route path="/Современная_классика">
                     <AlbumGroup ownerId={ -205424841 } name="Современная классика"/>
                   </Route>
@@ -112,7 +117,7 @@ class App extends React.Component
                     <main className="Main"><Contacts/></main>
                   </Route>
                   <Route path="/" exact>
-                    <SlideShow ownerId={ -204943414 } albumId={ 278146389 } auto/>
+                    <SlideShow path="/" auto/>
                   </Route>
                   <Route path="*">
                     <main className="Main">

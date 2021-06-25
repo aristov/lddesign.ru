@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BASE_URL } from './common'
+import api from './api'
 import './SlideShow.css'
 
 const { Hammer } = window
@@ -18,22 +18,20 @@ export class SlideShow extends React.Component
     if(!album) {
       return <div className="Loading">Загрузка...</div>
     }
-    const group = this.props.group
+    const section = album.section
     const current = this.state.current
     const prev = this.getIndex(current - 1)
     const next = this.getIndex(current + 1)
     const items = [album.items[prev], album.items[current], album.items[next]]
-    if(group) {
-      document.title = album.name + ' | Лариса Дедловская'
+    if(album.title) {
+      document.title = album.title + ' | Лариса Дедловская'
     }
     return (
       <div className="SlideShow">
-        { group?
-          <h2>
-            <Link to={ '/' + group.path } onKeyDown={ this.onBackKeyDown }>{ group.name }</Link>
-            { ' → ' + album.name }
-          </h2> :
-          null }
+        { section && (<h2>
+          <Link to={ section.path } onKeyDown={ this.onBackKeyDown }>{ section.title }</Link>
+          { ' → ' + album.title }
+        </h2>) }
         <div className="SlideList appear"
              aria-busy={ this.state.busy }
              ref={ this._ref }
@@ -75,7 +73,6 @@ export class SlideShow extends React.Component
       }
     })
     document.addEventListener('keydown', this.onKeyDown)
-    setTimeout(() => this.setState({ busy : false }))
   }
 
   componentWillUnmount() {
@@ -84,14 +81,10 @@ export class SlideShow extends React.Component
     this._hammertime?.off('swipe')
     document.removeEventListener('keydown', this.onKeyDown)
   }
-  
+
   async load() {
-    const url = new URL('album.php', BASE_URL)
-    url.searchParams.set('owner_id', this.props.ownerId)
-    url.searchParams.set('album_id', this.props.albumId)
-    const res = await fetch(url)
-    const album = await res.json()
-    this.setState({ album })
+    this.setState({ album : await api.getAlbum(this.props.path) })
+    setTimeout(() => this.setState({ busy : false }))
   }
 
   tick() {

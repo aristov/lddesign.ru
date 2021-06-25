@@ -23,7 +23,7 @@ export class Header extends React.Component
         </div>
         <nav ref={ this._nav }>
           <ul role="menu" onClick={ this.props.closeNav }>
-            { api.sections.map(section => (
+            { api.config.sections.map(section => (
               <li role="menuitem" key={ section.owner_id }>
                 <NavLink to={ section.path }
                          onKeyDown={ this.onKeyDown }

@@ -2,12 +2,11 @@ import path from 'path'
 import fs from 'fs'
 import sharp from 'sharp'
 import { slugify } from 'transliteration'
-import config from '../src/config.js'
 
 const cwd = process.cwd()
-const INPUT_PATH = './data'
-const OUTPUT_PATH = './public' + config.DATA_DIR
-const THUMBS_DIR = config.THUMBS_DIR
+const INPUT_PATH = './data/src'
+const OUTPUT_PATH = './data/output'
+const THUMBS_DIR = 'thumbs'
 const IMAGE_SIZE = 1200
 const THUMB_SIZE = 500
 const options = {

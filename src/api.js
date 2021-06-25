@@ -1,28 +1,19 @@
-import { BASE_URL } from './common'
+import config from './config'
+
+const { protocol, hostname, port } = window.location
+const pathname = port? '/lddesign.ru/public/' : '/'
+const BASE_URL = protocol + '//' + hostname + pathname
 
 function normalize(name) {
   return name.replace(/[\s():,./]+/g, '_')
 }
 
 const api = {
-  sections : [
-    {
-      owner_id : -205424841,
-      title : 'Современная классика',
-    },
-    {
-      owner_id : -205407254,
-      title : 'Лофт / минимализм',
-    },
-    {
-      owner_id : -205425358,
-      title : 'Экстерьер / другое',
-    },
-  ],
+  config,
   cache : {
     '/' : {
-      owner_id : -204943414,
-      id : 278146389,
+      owner_id : config.owner_id,
+      id : config.album_id,
     },
   },
   async getSection(path) {
@@ -60,14 +51,14 @@ const api = {
   },
   async getBlog(offset) {
     const url = new URL('blog.php', BASE_URL)
-    url.searchParams.set('owner_id', this.cache['/'].owner_id)
+    url.searchParams.set('owner_id', config.owner_id)
     url.searchParams.set('offset', offset)
     const res = await fetch(url)
     return res.json()
   },
 }
 
-for(const section of api.sections) {
+for(const section of config.sections) {
   api.cache[section.path = '/' + normalize(section.title)] = section
 }
 

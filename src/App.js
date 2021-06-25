@@ -40,7 +40,7 @@ class App extends React.Component
               <Route path="/:sectionPath/:albumPath" render={ ({ match }) => {
                 return <SlideShow path={ match.url }/>
               } }/>
-              { api.sections.map(section => (
+              { api.config.sections.map(section => (
                 <Route key={ section.owner_id } path={ section.path }>
                   <AlbumGroup path={ section.path }/>
                 </Route>

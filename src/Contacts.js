@@ -18,7 +18,7 @@ export function Contacts() {
         +7 925 771 1473
       </a>
       <hr/>
-      <a className="ContactsLink"
+      {/*<a className="ContactsLink"
          href="https://instagram.com/design.ld"
          target="_blank"
          rel="noreferrer">
@@ -31,7 +31,7 @@ export function Contacts() {
          rel="noreferrer">
         <span className="icon icon-facebook"/>
         larisa.dedlovskaya
-      </a>
+      </a>*/}
       <a className="ContactsLink"
          href="https://vk.com/larisadedlovskaya"
          target="_blank"

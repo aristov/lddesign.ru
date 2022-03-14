@@ -59,12 +59,12 @@ export class Header extends React.Component
           </ul>
           <div className="Social">
             <div>
-              <a target="_blank" rel="noreferrer" href="https://instagram.com/design.ld">
+              {/*<a target="_blank" rel="noreferrer" href="https://instagram.com/design.ld">
                 <span className="icon icon-instagram"/>
               </a>
               <a target="_blank" rel="noreferrer" href="https://facebook.com/larisa.dedlovskaya">
                 <span className="icon icon-facebook"/>
-              </a>
+              </a>*/}
               <a target="_blank" rel="noreferrer" href="https://mona.livejournal.com">
                 <span className="icon icon-livejournal"/>
               </a>

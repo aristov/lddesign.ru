@@ -33,11 +33,11 @@ export function Contacts() {
         larisa.dedlovskaya
       </a>*/}
       <a className="ContactsLink"
-         href="https://vk.com/larisadedlovskaya"
+         href="https://vk.com/design__ld"
          target="_blank"
          rel="noreferrer">
         <span className="icon icon-vkontakte"/>
-        larisadedlovskaya
+        design__ld
       </a>
       <a className="ContactsLink"
          href="https://mona.livejournal.com"
